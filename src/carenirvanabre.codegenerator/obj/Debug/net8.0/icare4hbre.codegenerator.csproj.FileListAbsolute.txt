@@ -1,0 +1,12 @@
+C:\Users\PradeepKodakandla\Desktop\icare4hbre\icare4hbre\src\icare4hbre.codegenerator\bin\Debug\net8.0\icare4hbre.codegenerator.deps.json
+C:\Users\PradeepKodakandla\Desktop\icare4hbre\icare4hbre\src\icare4hbre.codegenerator\bin\Debug\net8.0\icare4hbre.codegenerator.dll
+C:\Users\PradeepKodakandla\Desktop\icare4hbre\icare4hbre\src\icare4hbre.codegenerator\bin\Debug\net8.0\icare4hbre.codegenerator.pdb
+C:\Users\PradeepKodakandla\Desktop\icare4hbre\icare4hbre\src\icare4hbre.codegenerator\obj\Debug\net8.0\icare4hbre.codegenerator.csproj.AssemblyReference.cache
+C:\Users\PradeepKodakandla\Desktop\icare4hbre\icare4hbre\src\icare4hbre.codegenerator\obj\Debug\net8.0\icare4hbre.codegenerator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PradeepKodakandla\Desktop\icare4hbre\icare4hbre\src\icare4hbre.codegenerator\obj\Debug\net8.0\icare4hbre.codegenerator.AssemblyInfoInputs.cache
+C:\Users\PradeepKodakandla\Desktop\icare4hbre\icare4hbre\src\icare4hbre.codegenerator\obj\Debug\net8.0\icare4hbre.codegenerator.AssemblyInfo.cs
+C:\Users\PradeepKodakandla\Desktop\icare4hbre\icare4hbre\src\icare4hbre.codegenerator\obj\Debug\net8.0\icare4hbre.codegenerator.csproj.CoreCompileInputs.cache
+C:\Users\PradeepKodakandla\Desktop\icare4hbre\icare4hbre\src\icare4hbre.codegenerator\obj\Debug\net8.0\icare4hbre.codegenerator.dll
+C:\Users\PradeepKodakandla\Desktop\icare4hbre\icare4hbre\src\icare4hbre.codegenerator\obj\Debug\net8.0\refint\icare4hbre.codegenerator.dll
+C:\Users\PradeepKodakandla\Desktop\icare4hbre\icare4hbre\src\icare4hbre.codegenerator\obj\Debug\net8.0\icare4hbre.codegenerator.pdb
+C:\Users\PradeepKodakandla\Desktop\icare4hbre\icare4hbre\src\icare4hbre.codegenerator\obj\Debug\net8.0\ref\icare4hbre.codegenerator.dll

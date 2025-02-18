@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "carenirvanabre.engine", "src\carenirvanabre.engine\carenirvanabre.engine.csproj", "{689690B2-E412-4833-8B50-3EBE291DD77D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "carenirvanabre.codegenerator", "src\carenirvanabre.codegenerator\carenirvanabre.codegenerator.csproj", "{0AFC6B6C-B680-4324-A47E-597FA933C224}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{689690B2-E412-4833-8B50-3EBE291DD77D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{689690B2-E412-4833-8B50-3EBE291DD77D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{689690B2-E412-4833-8B50-3EBE291DD77D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{689690B2-E412-4833-8B50-3EBE291DD77D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AFC6B6C-B680-4324-A47E-597FA933C224}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AFC6B6C-B680-4324-A47E-597FA933C224}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AFC6B6C-B680-4324-A47E-597FA933C224}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AFC6B6C-B680-4324-A47E-597FA933C224}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

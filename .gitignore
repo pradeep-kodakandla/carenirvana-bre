@@ -1,0 +1,7 @@
+*.v2
+*.vsidx
+*.suo
+*.bin
+*.props
+*.targets
+*.cache

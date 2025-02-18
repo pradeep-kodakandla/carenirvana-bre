@@ -1,0 +1,12 @@
+C:\Users\PradeepKodakandla\Desktop\icare4hbre\icare4hbre\src\icare4hbre.engine\bin\Debug\net8.0\icare4hbre.engine.deps.json
+C:\Users\PradeepKodakandla\Desktop\icare4hbre\icare4hbre\src\icare4hbre.engine\bin\Debug\net8.0\icare4hbre.engine.dll
+C:\Users\PradeepKodakandla\Desktop\icare4hbre\icare4hbre\src\icare4hbre.engine\bin\Debug\net8.0\icare4hbre.engine.pdb
+C:\Users\PradeepKodakandla\Desktop\icare4hbre\icare4hbre\src\icare4hbre.engine\obj\Debug\net8.0\icare4hbre.engine.csproj.AssemblyReference.cache
+C:\Users\PradeepKodakandla\Desktop\icare4hbre\icare4hbre\src\icare4hbre.engine\obj\Debug\net8.0\icare4hbre.engine.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PradeepKodakandla\Desktop\icare4hbre\icare4hbre\src\icare4hbre.engine\obj\Debug\net8.0\icare4hbre.engine.AssemblyInfoInputs.cache
+C:\Users\PradeepKodakandla\Desktop\icare4hbre\icare4hbre\src\icare4hbre.engine\obj\Debug\net8.0\icare4hbre.engine.AssemblyInfo.cs
+C:\Users\PradeepKodakandla\Desktop\icare4hbre\icare4hbre\src\icare4hbre.engine\obj\Debug\net8.0\icare4hbre.engine.csproj.CoreCompileInputs.cache
+C:\Users\PradeepKodakandla\Desktop\icare4hbre\icare4hbre\src\icare4hbre.engine\obj\Debug\net8.0\icare4hbre.engine.dll
+C:\Users\PradeepKodakandla\Desktop\icare4hbre\icare4hbre\src\icare4hbre.engine\obj\Debug\net8.0\refint\icare4hbre.engine.dll
+C:\Users\PradeepKodakandla\Desktop\icare4hbre\icare4hbre\src\icare4hbre.engine\obj\Debug\net8.0\icare4hbre.engine.pdb
+C:\Users\PradeepKodakandla\Desktop\icare4hbre\icare4hbre\src\icare4hbre.engine\obj\Debug\net8.0\ref\icare4hbre.engine.dll
