@@ -1,21 +1,34 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\CareNirvana\\carenirvana-bre\\",
+  "WorkspaceRootPath": "D:\\repos\\carenirvana-bre\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PradeepKodakandla\\Desktop\\icare4hbre\\icare4hbre\\src\\icare4hbre.engine\\BreAssemblyBuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{99E93328-4EBE-4113-8B82-22FEBE92B996}|src\\carenirvana.bre.workflow\\carenirvana.bre.workflow.csproj|d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\workflowassemblycacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99E93328-4EBE-4113-8B82-22FEBE92B996}|src\\carenirvana.bre.workflow\\carenirvana.bre.workflow.csproj|solutionrelative:src\\carenirvana.bre.workflow\\workflowassemblycacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PradeepKodakandla\\Desktop\\icare4hbre\\icare4hbre\\src\\icare4hbre.codegenerator\\carenirvanabre.codegenerator.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{99E93328-4EBE-4113-8B82-22FEBE92B996}|src\\carenirvana.bre.workflow\\carenirvana.bre.workflow.csproj|d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\ruleinvoker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99E93328-4EBE-4113-8B82-22FEBE92B996}|src\\carenirvana.bre.workflow\\carenirvana.bre.workflow.csproj|solutionrelative:src\\carenirvana.bre.workflow\\ruleinvoker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PradeepKodakandla\\Desktop\\icare4hbre\\icare4hbre\\src\\icare4hbre.engine\\RuleEngine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2BCD7E1-4ACD-4D24-A317-26FCD09E39F0}|src\\carenirvana.bre.testapp\\carenirvana.bre.testapp.csproj|d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.testapp\\breconfigdata.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2BCD7E1-4ACD-4D24-A317-26FCD09E39F0}|src\\carenirvana.bre.testapp\\carenirvana.bre.testapp.csproj|solutionrelative:src\\carenirvana.bre.testapp\\breconfigdata.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PradeepKodakandla\\Desktop\\icare4hbre\\icare4hbre\\src\\icare4hbre.engine\\RuleAutoClass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{99E93328-4EBE-4113-8B82-22FEBE92B996}|src\\carenirvana.bre.workflow\\carenirvana.bre.workflow.csproj|d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\workitemprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99E93328-4EBE-4113-8B82-22FEBE92B996}|src\\carenirvana.bre.workflow\\carenirvana.bre.workflow.csproj|solutionrelative:src\\carenirvana.bre.workflow\\workitemprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PradeepKodakandla\\Desktop\\icare4hbre\\icare4hbre\\src\\icare4hbre.codegenerator\\Impl\\CodeModelSerializerFactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{63D7FEBE-8395-4FDA-8F1D-C4721081FD97}|src\\carenirvana.bre.repository\\carenirvana.bre.repository.csproj|d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.repository\\impl\\reader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63D7FEBE-8395-4FDA-8F1D-C4721081FD97}|src\\carenirvana.bre.repository\\carenirvana.bre.repository.csproj|solutionrelative:src\\carenirvana.bre.repository\\impl\\reader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{689690B2-E412-4833-8B50-3EBE291DD77D}|src\\carenirvana.bre.engine\\carenirvana.bre.engine.csproj|d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.engine\\ruleenginerunner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{689690B2-E412-4833-8B50-3EBE291DD77D}|src\\carenirvana.bre.engine\\carenirvana.bre.engine.csproj|solutionrelative:src\\carenirvana.bre.engine\\ruleenginerunner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99E93328-4EBE-4113-8B82-22FEBE92B996}|src\\carenirvana.bre.workflow\\carenirvana.bre.workflow.csproj|d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\workflowworkshoprunner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99E93328-4EBE-4113-8B82-22FEBE92B996}|src\\carenirvana.bre.workflow\\carenirvana.bre.workflow.csproj|solutionrelative:src\\carenirvana.bre.workflow\\workflowworkshoprunner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -25,70 +38,102 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "carenirvanabre.codegenerator.csproj",
-              "DocumentMoniker": "C:\\Users\\PradeepKodakandla\\Desktop\\icare4hbre\\icare4hbre\\src\\icare4hbre.codegenerator\\carenirvanabre.codegenerator.csproj",
-              "RelativeDocumentMoniker": "..\\..\\Users\\PradeepKodakandla\\Desktop\\icare4hbre\\icare4hbre\\src\\icare4hbre.codegenerator\\carenirvanabre.codegenerator.csproj",
-              "ToolTip": "C:\\Users\\PradeepKodakandla\\Desktop\\icare4hbre\\icare4hbre\\src\\icare4hbre.codegenerator\\carenirvanabre.codegenerator.csproj",
-              "RelativeToolTip": "..\\..\\Users\\PradeepKodakandla\\Desktop\\icare4hbre\\icare4hbre\\src\\icare4hbre.codegenerator\\carenirvanabre.codegenerator.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-02-18T21:35:38.177Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "BreAssemblyBuilder.cs",
-              "DocumentMoniker": "C:\\Users\\PradeepKodakandla\\Desktop\\icare4hbre\\icare4hbre\\src\\icare4hbre.engine\\BreAssemblyBuilder.cs",
-              "RelativeDocumentMoniker": "..\\..\\Users\\PradeepKodakandla\\Desktop\\icare4hbre\\icare4hbre\\src\\icare4hbre.engine\\BreAssemblyBuilder.cs",
-              "ToolTip": "C:\\Users\\PradeepKodakandla\\Desktop\\icare4hbre\\icare4hbre\\src\\icare4hbre.engine\\BreAssemblyBuilder.cs",
-              "RelativeToolTip": "..\\..\\Users\\PradeepKodakandla\\Desktop\\icare4hbre\\icare4hbre\\src\\icare4hbre.engine\\BreAssemblyBuilder.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T21:34:38.093Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RuleEngine.cs",
-              "DocumentMoniker": "C:\\Users\\PradeepKodakandla\\Desktop\\icare4hbre\\icare4hbre\\src\\icare4hbre.engine\\RuleEngine.cs",
-              "RelativeDocumentMoniker": "..\\..\\Users\\PradeepKodakandla\\Desktop\\icare4hbre\\icare4hbre\\src\\icare4hbre.engine\\RuleEngine.cs",
-              "ToolTip": "C:\\Users\\PradeepKodakandla\\Desktop\\icare4hbre\\icare4hbre\\src\\icare4hbre.engine\\RuleEngine.cs",
-              "RelativeToolTip": "..\\..\\Users\\PradeepKodakandla\\Desktop\\icare4hbre\\icare4hbre\\src\\icare4hbre.engine\\RuleEngine.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABMAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T13:57:11.191Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "RuleAutoClass.cs",
-              "DocumentMoniker": "C:\\Users\\PradeepKodakandla\\Desktop\\icare4hbre\\icare4hbre\\src\\icare4hbre.engine\\RuleAutoClass.cs",
-              "RelativeDocumentMoniker": "..\\..\\Users\\PradeepKodakandla\\Desktop\\icare4hbre\\icare4hbre\\src\\icare4hbre.engine\\RuleAutoClass.cs",
-              "ToolTip": "C:\\Users\\PradeepKodakandla\\Desktop\\icare4hbre\\icare4hbre\\src\\icare4hbre.engine\\RuleAutoClass.cs",
-              "RelativeToolTip": "..\\..\\Users\\PradeepKodakandla\\Desktop\\icare4hbre\\icare4hbre\\src\\icare4hbre.engine\\RuleAutoClass.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T13:57:10.443Z"
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "CodeModelSerializerFactory.cs",
-              "DocumentMoniker": "C:\\Users\\PradeepKodakandla\\Desktop\\icare4hbre\\icare4hbre\\src\\icare4hbre.codegenerator\\Impl\\CodeModelSerializerFactory.cs",
-              "RelativeDocumentMoniker": "..\\..\\Users\\PradeepKodakandla\\Desktop\\icare4hbre\\icare4hbre\\src\\icare4hbre.codegenerator\\Impl\\CodeModelSerializerFactory.cs",
-              "ToolTip": "C:\\Users\\PradeepKodakandla\\Desktop\\icare4hbre\\icare4hbre\\src\\icare4hbre.codegenerator\\Impl\\CodeModelSerializerFactory.cs",
-              "RelativeToolTip": "..\\..\\Users\\PradeepKodakandla\\Desktop\\icare4hbre\\icare4hbre\\src\\icare4hbre.codegenerator\\Impl\\CodeModelSerializerFactory.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Title": "Reader.cs",
+              "DocumentMoniker": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.repository\\Impl\\Reader.cs",
+              "RelativeDocumentMoniker": "src\\carenirvana.bre.repository\\Impl\\Reader.cs",
+              "ToolTip": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.repository\\Impl\\Reader.cs",
+              "RelativeToolTip": "src\\carenirvana.bre.repository\\Impl\\Reader.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAhwFUAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T13:50:01.32Z"
+              "WhenOpened": "2025-03-11T15:52:18.78Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RuleEngineRunner.cs",
+              "DocumentMoniker": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.engine\\RuleEngineRunner.cs",
+              "RelativeDocumentMoniker": "src\\carenirvana.bre.engine\\RuleEngineRunner.cs",
+              "ToolTip": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.engine\\RuleEngineRunner.cs",
+              "RelativeToolTip": "src\\carenirvana.bre.engine\\RuleEngineRunner.cs",
+              "ViewState": "AgIAAFcAAAAAAAAAAAApwGEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T15:51:52.859Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RuleInvoker.cs",
+              "DocumentMoniker": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\RuleInvoker.cs",
+              "RelativeDocumentMoniker": "src\\carenirvana.bre.workflow\\RuleInvoker.cs",
+              "ToolTip": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\RuleInvoker.cs",
+              "RelativeToolTip": "src\\carenirvana.bre.workflow\\RuleInvoker.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADgv0UAAABiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T15:45:15.688Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "WorkItemProcessor.cs",
+              "DocumentMoniker": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\WorkItemProcessor.cs",
+              "RelativeDocumentMoniker": "src\\carenirvana.bre.workflow\\WorkItemProcessor.cs",
+              "ToolTip": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\WorkItemProcessor.cs",
+              "RelativeToolTip": "src\\carenirvana.bre.workflow\\WorkItemProcessor.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwBIAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T15:44:58.501Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "WorkflowAssemblyCacher.cs",
+              "DocumentMoniker": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\WorkflowAssemblyCacher.cs",
+              "RelativeDocumentMoniker": "src\\carenirvana.bre.workflow\\WorkflowAssemblyCacher.cs",
+              "ToolTip": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\WorkflowAssemblyCacher.cs",
+              "RelativeToolTip": "src\\carenirvana.bre.workflow\\WorkflowAssemblyCacher.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T15:44:51.515Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "WorkflowWorkshopRunner.cs",
+              "DocumentMoniker": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\WorkflowWorkshopRunner.cs",
+              "RelativeDocumentMoniker": "src\\carenirvana.bre.workflow\\WorkflowWorkshopRunner.cs",
+              "ToolTip": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\WorkflowWorkshopRunner.cs",
+              "RelativeToolTip": "src\\carenirvana.bre.workflow\\WorkflowWorkshopRunner.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T15:44:48.953Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BREConfigData.json",
+              "DocumentMoniker": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.testapp\\BREConfigData.json",
+              "RelativeDocumentMoniker": "src\\carenirvana.bre.testapp\\BREConfigData.json",
+              "ToolTip": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.testapp\\BREConfigData.json",
+              "RelativeToolTip": "src\\carenirvana.bre.testapp\\BREConfigData.json",
+              "ViewState": "AgIAAOoAAAAAAAAAAAAEwPcAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-11T14:04:23.295Z",
+              "EditorCaption": ""
             }
           ]
         }

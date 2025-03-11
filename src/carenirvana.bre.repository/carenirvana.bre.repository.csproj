@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\carenirvana.bre.common\carenirvana.bre.common.csproj" />
+    <ProjectReference Include="..\carenirvana.bre.dataaccess\carenirvana.bre.dataaccess.csproj" />
+    <ProjectReference Include="..\carenirvana.bre.model\carenirvana.bre.model.csproj" />
+  </ItemGroup>
+
+</Project>

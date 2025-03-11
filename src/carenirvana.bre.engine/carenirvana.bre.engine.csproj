@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="HelperFunctions\**" />
+    <Compile Remove="Validator\**" />
+    <EmbeddedResource Remove="HelperFunctions\**" />
+    <EmbeddedResource Remove="Validator\**" />
+    <None Remove="HelperFunctions\**" />
+    <None Remove="Validator\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.13.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\carenirvana.bre.batchmanager\carenirvana.bre.batchmanager.csproj" />
+    <ProjectReference Include="..\carenirvana.bre.codebuilder\carenirvana.bre.codebuilder.csproj" />
+    <ProjectReference Include="..\carenirvana.bre.dataaccess\carenirvana.bre.dataaccess.csproj" />
+    <ProjectReference Include="..\carenirvana.bre.model\carenirvana.bre.model.csproj" />
+    <ProjectReference Include="..\carenirvana.bre.repository\carenirvana.bre.repository.csproj" />
+    <ProjectReference Include="..\carenirvana.bre.workflow\carenirvana.bre.workflow.csproj" />
+  </ItemGroup>
+
+</Project>

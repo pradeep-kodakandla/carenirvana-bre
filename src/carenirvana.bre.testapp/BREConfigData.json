@@ -1,0 +1,274 @@
+{
+  "rulevariable": [
+    {
+      "variablename": "var1",
+      "variablevalue": "2"
+    },
+    {
+      "variablename": "var2",
+      "variablevalue": "false"
+    },
+    {
+      "variablename": "var3",
+      "variablevalue": "india"
+    },
+    {
+      "variablename": "var4",
+      "variablevalue": "25.36"
+    },
+    {
+      "variablename": "var5",
+      "variablevalue": "2025-10-25"
+    }
+  ],
+  "ruledatacategory": [
+    {
+      "id": "1",
+      "categoryname": "ruleinputmemberdetails",
+      "activeFlag": true,
+      "description": "Rule Category Description 1",
+      "createdBy": "system_user",
+      "createdOn": "2025-01-01T10:00:00Z",
+      "updatedBy": "current_user",
+      "updatedOn": "2025-01-10T01:32:01.300Z"
+    }
+  ],
+  "rulemodel": [
+    {
+      "id": "1",
+      "categoryname": "ruleinputmemberdetails",
+      "fieldname": "Member City",
+      "datafieldname": "city",
+      "datafieldtype": "string",
+      "isderived": "false",
+      "formula": "",
+      "createdBy": "current_user",
+      "createdOn": "2025-01-07T05:37:04.483Z",
+      "updatedBy": "current_user",
+      "updatedOn": "2025-01-09T00:35:17.213Z"
+    },
+    {
+      "id": "2",
+      "categoryname": "ruleinputmemberdetails",
+      "fieldname": "Date Of Birth",
+      "datafieldname": "birthdate",
+      "datafieldtype": "datetime",
+      "isderived": "false",
+      "formula": "",
+      "createdBy": "current_user",
+      "createdOn": "2025-01-07T05:37:04.483Z",
+      "updatedBy": "current_user",
+      "updatedOn": "2025-01-09T00:35:17.213Z"
+    },
+    {
+      "id": "3",
+      "categoryname": "ruleinputmemberdetails",
+      "fieldname": "Gender",
+      "datafieldname": "gender",
+      "datafieldtype": "string",
+      "isderived": "true",
+      "formula": "",
+      "createdBy": "current_user",
+      "createdOn": "2025-01-07T05:37:04.483Z",
+      "updatedBy": "current_user",
+      "updatedOn": "2025-01-09T00:35:17.213Z"
+    },
+    {
+      "id": "4",
+      "categoryname": "ruleinputmemberdetails",
+      "fieldname": "Member Death Date",
+      "datafieldname": "deathdate",
+      "datafieldtype": "datetime",
+      "isderived": "true",
+      "formula": "",
+      "createdBy": "current_user",
+      "createdOn": "2025-01-07T05:37:04.483Z",
+      "updatedBy": "current_user",
+      "updatedOn": "2025-01-09T00:35:17.213Z"
+    },
+    {
+      "id": "5",
+      "categoryname": "ruleinputmemberdetails",
+      "fieldname": "Member Weight",
+      "datafieldname": "weight",
+      "datafieldtype": "double",
+      "isderived": "true",
+      "formula": "",
+      "createdBy": "current_user",
+      "createdOn": "2025-01-07T05:37:04.483Z",
+      "updatedBy": "current_user",
+      "updatedOn": "2025-01-09T00:35:17.213Z"
+    },
+    {
+      "id": "6",
+      "categoryname": "ruleinputmemberdetails",
+      "fieldname": "Primary Phone",
+      "datafieldname": "primaryphone",
+      "datafieldtype": "string",
+      "isderived": "true",
+      "formula": "",
+      "createdBy": "current_user",
+      "createdOn": "2025-01-07T05:37:04.483Z",
+      "updatedBy": "current_user",
+      "updatedOn": "2025-01-09T00:35:17.213Z"
+    },
+    {
+      "id": "7",
+      "categoryname": "ruleinputmemberdetails",
+      "fieldname": "First Name",
+      "datafieldname": "firstname",
+      "datafieldtype": "string",
+      "isderived": "true",
+      "formula": "",
+      "createdBy": "current_user",
+      "createdOn": "2025-01-07T05:37:04.483Z",
+      "updatedBy": "current_user",
+      "updatedOn": "2025-01-09T00:35:17.213Z"
+    },
+    {
+      "id": "8",
+      "categoryname": "ruleinputmemberdetails",
+      "fieldname": "Middle Name",
+      "datafieldname": "middlename",
+      "datafieldtype": "string",
+      "isderived": "true",
+      "formula": "",
+      "createdBy": "current_user",
+      "createdOn": "2025-01-07T05:37:04.483Z",
+      "updatedBy": "current_user",
+      "updatedOn": "2025-01-09T00:35:17.213Z"
+    },
+    {
+      "id": "9",
+      "categoryname": "ruleinputmemberdetails",
+      "fieldname": "Last Name",
+      "datafieldname": "lastname",
+      "datafieldtype": "string",
+      "isderived": "true",
+      "formula": "",
+      "createdBy": "current_user",
+      "createdOn": "2025-01-07T05:37:04.483Z",
+      "updatedBy": "current_user",
+      "updatedOn": "2025-01-09T00:35:17.213Z"
+    }
+  ],
+  "rulefunction": [
+    {
+      "functionname": "age",
+      "functiondescription": "calculate age of member",
+      "functioncode": "DATEDIFF(birthdate, CURRDATE, \"D\")",
+      "return": "int",
+      "createdBy": "current_user",
+      "createdOn": "2025-01-07T05:37:04.483Z",
+      "updatedBy": "current_user",
+      "updatedOn": "2025-01-09T00:35:17.213Z",
+      "ruleparams": [
+        {
+          "paramname": "birthdate",
+          "fieldname": "Date Of Birth",
+          "type": "datetime"
+        }
+      ]
+    },
+    {
+      "functionname": "memberfullname",
+      "functiondescription": "trim member first name",
+      "functioncode": "CONCAT(firstname, middlename, lastname)",
+      "return": "string",
+      "createdBy": "current_user",
+      "createdOn": "2025-01-07T05:37:04.483Z",
+      "updatedBy": "current_user",
+      "updatedOn": "2025-01-09T00:35:17.213Z",
+      "ruleparams": [
+        {
+          "paramname": "firstname",
+          "fieldname": "First Name",
+          "type": "string"
+        },
+        {
+          "paramname": "middlename",
+          "fieldname": "Middle Name",
+          "type": "string"
+        },
+        {
+          "paramname": "lastname",
+          "fieldname": "Last Name",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "functionname": "ismemberactive",
+      "functiondescription": "find if member is still alive or dead",
+      "functioncode": "ISNULL(deathdate)",
+      "return": "bool",
+      "createdBy": "current_user",
+      "createdOn": "2025-01-07T05:37:04.483Z",
+      "updatedBy": "current_user",
+      "updatedOn": "2025-01-09T00:35:17.213Z",
+      "ruleparams": [
+        {
+          "paramname": "deathdate",
+          "fieldname": "Death Date",
+          "type": "datetime"
+        }
+      ]
+    }
+  ],
+  "rulenode": [
+    {
+      "rulesetname": "ruleset1",
+      "rules": [
+        {
+          "rulename": "CouldBeDiabetic",
+          "batchrule": "true",
+          "errormessage": "CouldBeDiabetic rule failed.",
+          "enabled": true,
+          "expressions": [
+            {
+              "expression": "ismemberactive",
+              "logiccondition": "AND"
+            },
+            {
+              "expression": "age > 60",
+              "logiccondition": ""
+            }
+          ],
+          "successevent": "WARN",
+          "ruleparams": [
+            {
+              "paramname": "ismemberactive",
+              "fieldname": "ismemberactive",
+              "type": "bool"
+            },
+            {
+              "paramname": "age",
+              "fieldname": "age",
+              "type": "int"
+            }
+          ]
+        },
+        {
+          "rulename": "IsMemberNameCareNirvana",
+          "batchrule": "true",
+          "errormessage": "IsMemberNameCareNirvana rule failed.",
+          "enabled": true,
+          "expressions": [
+            {
+              "expression": "UPPERCASE(memberfullname) == UPPERCASE(\"CareNirvana\")",
+              "logiccondition": ""
+            }
+          ],
+          "successevent": "WARN",
+          "ruleparams": [
+            {
+              "paramname": "memberfullname",
+              "fieldname": "memberfullname",
+              "type": "string"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

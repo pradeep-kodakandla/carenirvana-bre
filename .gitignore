@@ -1,7 +1,124 @@
-*.v2
-*.vsidx
-*.suo
-*.bin
-*.props
-*.targets
+# .NET Core
+bin/
+obj/
+out/
+*.dll
+*.exe
+*.pdb
 *.cache
+*.log
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+*.vspscc
+.vscode/
+.vs/
+.idea/
+*.csproj.user
+*.csproj.nuget.g.props
+*.csproj.nuget.g.targets
+
+# Rider
+.idea/
+*.sln.iml
+
+# Visual Studio Code
+.vscode/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Auto-generated files
+Generated_Code/
+
+# Logs
+*.log
+
+# NPM packages
+node_modules/
+
+# Environment variables
+.env
+
+# Local history
+.localhistory/
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*.swn
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# DotCover
+*.dotCover
+
+# TeamCity
+_TeamCity*
+
+# DotTrace
+*.dotTrace
+
+# DotMemory
+*.dotMemory
+
+# CodeRush
+.cr/
+
+# NCrunch
+.ncrunchsolution
+.ncrunchproject
+
+# DocProject
+docproject.xml
+docproject.config
+
+# StyleCop
+StyleCopReport.xml
+
+# Code Coverage Results
+*.coverage
+*.coveragexml
+*.coveragejson
+*.opencover
+*.cobertura.xml
+
+# NUnit
+*.VisualState.xml
+TestResult.xml
+
+# Build Results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa]pp[Dd]ata/
+[Ll]og/
+[Tt]emp/
+[Tt]est[Rr]esult/
+[Tt]est[Rr]esults/

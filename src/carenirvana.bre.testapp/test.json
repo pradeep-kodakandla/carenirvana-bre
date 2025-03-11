@@ -1,0 +1,156 @@
+﻿"member": {
+  "addressLine1": null,
+  "addressLine": null,
+  "city": null,
+  "country": null,
+  "county": null,
+  "borough": null,
+  "postalCode": null,
+  "stateProvince": "CA",
+  "primaryEmail": null,
+  "primaryPhone": null,
+  "alternateEmail": null,
+  "alternatePhone": null,
+  "mobilePhone": null,
+  “clientPatientId”: ”ILS1234,
+  "primaryLanguage": null,
+  "createdOn": "2020-06-04T04:30:16.603",
+  "dob": "1997-01-05T00:00:00",
+  "gender": "F",
+  "hasCareTeamOwner": false,
+  "maritalStatus": null,
+  "firstName": "CS-1085/88",
+  "middleName": null,
+  "lastName": "Test Member 3",
+  "namePrefix": "",
+  "nameSuffix": null,
+  "insuredID": null,
+  "hasServicePlan": false,
+  "currentPcpId": null,
+  "pcpTaxId": "taxid",
+  "preferedTimeOfCall": null,
+  "clientpatientId ": ALT123”,
+  "preferredPhone": null,
+  "client": {
+    "clientName": "GA"
+  },
+  "documents": [
+    {
+      "type": "type",
+      "document": "doc1",
+      "description": "test",
+      "createdOn": "2020-06-03T05:09:14.083",
+      "createdBy": "user",
+      "updatedOn": "2020-06-03T05:09:14.083",
+      "updatedBy": "user",
+      "authID": "H765"
+    }
+  ],
+  "key": "Death Date",
+  "value": null,
+  "createdOn": null,
+  "updatedOn": null
+  "aidSupplementals": [
+    {
+      "aidSupplementalCode": "test",
+      "aidSupplementalName": "abc",
+      "aidReference": "test",
+      "effectiveFrom": "2020-05-04T03:24:48.973",
+      "effectiveTo": "2020-05-04T03:24:48.973",
+      "eligibilityType": "test",
+      "createdOn": "2020-05-04T03:24:48.973",
+      "updatedOn": "2020-05-04T03:24:48.973"
+    }
+  ],
+  "conditions": [
+    {
+      "conditionName": "name",
+      "conditionType": "type",
+      "createdOn": "2020-05-04T03:24:48.973",
+      "startDate": "2020-06-04T09:45:07.01",
+      "endDate": null
+    }
+  ],
+  "indexs": [
+    {
+      "indexName": "name",
+      "indexReference": "reference"
+    }
+  ],
+  "indicators": [
+    {
+      "indicatorName": "name",
+      "parameter": "test",
+      "value": "value",
+      "sourceId": "source",
+      "createdOn": "2020-06-04T09:45:07.01",
+      "comments": "test comments"
+    }
+  ],
+  "opportunities": [
+    {
+      "createdOn": "2020-06-04T09:45:07.01",
+      "opportunityName": "name",
+      "source": "value",
+      "sourceId": "id"
+    }
+  ],
+  "pcps": [
+    {
+      "effectiveFrom": "2018-06-04T09:45:07.01",
+      "effectiveTo": "2020-06-04T09:45:07.01",
+      "primaryCareProviderId": "id",
+      "providerType": "type name"
+    }
+  ],
+  “preferredSpokenLanguages”: [
+  ],
+  "risks": [
+    {
+      "type": "Assigned Risk",
+      "category": "Medium",
+      "score": 850,
+      "weight": 0,
+      "createdOn": "2020-05-04T03:24:48.973",
+      GuidingCare Rules
+      Designer BOMDocument
+      Version 8.17
+      Confidential &
+      Proprietary Page
+      106 of
+      239
+      "oldRisk": "Medium",
+      "createdBy": "FN_ADMIN LN_ADMIN",
+      "updatedBy": "FN_ADMIN LN_ADMIN",
+      "updatedOn": null,
+      "startDate": "2020-05-04T03:24:48.973",
+      "endDate": "2020-06-03T03:24:48.973"
+    }
+  ],
+  "documents": [
+  ],
+  "notes": [
+    {
+      "noteType": "Accept",
+      "createdOn": "2020-06-04T07:40:43.45",
+      "updatedOn": null
+    }
+  ],
+  "additionalAddresses": [
+    {
+      "zip": null,
+      "addressType": "Temporary",
+      "isPrimary": true,
+      "createdOn": "2020-06-04T04:30:16.603",
+      "updatedOn": null,
+      "stateProvince": "CA",
+      "county": null,
+      "startDate": null,
+      "endDate": null
+    }
+  ],
+  "preferredWrittenLanguages": [
+  ],
+  "pregnancyHistory": true,
+  "residenceStatus": "Homeless"
+}
