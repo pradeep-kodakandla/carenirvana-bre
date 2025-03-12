@@ -7,10 +7,10 @@ using static carenirvana.bre.codegenerator.EnumCollection;
 
 namespace carenirvana.bre.codebuilder
 {
-    public class InputObjectBuilder(List<RuleModel> ruleModels, string categoryName) : CodeModelBuilder
+    public class InputObjectBuilder(List<RuleModel> ruleModels, string inputTableName) : CodeModelBuilder
     {
         private readonly List<RuleModel> _ruleModels = ruleModels ?? throw new ArgumentNullException(nameof(ruleModels));
-        private readonly string _categoryName = categoryName ?? throw new ArgumentNullException(nameof(categoryName));
+        private readonly string inputTableName = inputTableName ?? throw new ArgumentNullException(nameof(inputTableName));
         private const string PropertyReflector = "IPropertyReflector";
         private const string PropertyManager = "IPropertyManager";
         private const string IInputObject = "IInputObject";
@@ -24,8 +24,8 @@ namespace carenirvana.bre.codebuilder
 
         private void BuildInputObject()
         {
-            AddClassWithName(_categoryName, false)
-                .AddNamespace("carenirvana.bre.engine.inputdata")
+            AddClassWithName(inputTableName, false)
+                .AddNamespace(ConstantsUtility.RunTimeInputDataTypeName)
                 .AddNamespaceImports(["System", "System.Collections.Concurrent", "System.Reflection", "carenirvana.bre.utility.Extensions", "carenirvana.bre.model", "carenirvana.bre.model.Impl"])
                 .AddBaseType(IInputObject)
                 .AddBaseType(PropertyReflector)
@@ -44,13 +44,12 @@ namespace carenirvana.bre.codebuilder
                     "ConcurrentDictionary<string, PropertyInfo>",
                     [CodeModelAttribute.Private, CodeModelAttribute.Static],
                     null,
-                    $"typeof({_categoryName}).ToProperties()"));
+                    $"typeof({inputTableName}).ToProperties()"));
         }
 
         private List<ICodeMemberProperty> GetProperties()
         {
             return _ruleModels
-                .Where(x => x.CategoryName.Equals(_categoryName))
                 .Select(NewCodeMemberProperty)
                 .ToList();
         }

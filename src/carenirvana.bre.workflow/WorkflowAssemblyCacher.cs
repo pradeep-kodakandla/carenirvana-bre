@@ -24,14 +24,14 @@ namespace carenirvana.bre.workflow
         private void Init()
         {
             ruleExecutorType = HelperFunctions.GetTypeFromAssembly(
-                            "carenirvana.bre.engine.runtime",
-                            "carenirvana.bre.engine.ruleexecutor",
+                            ConstantsUtility.RunTimeNameSpace,
+                            ConstantsUtility.RunTimeRuleExecutorTypeName,
                             "RuleExecutor");
 
             ruleExecutorInstance = _objectFactory.CreateInstance(
                                 HelperFunctions.GetTypeFromAssembly(
-                                "carenirvana.bre.engine.runtime",
-                                "carenirvana.bre.engine.ruleexecutor",
+                                ConstantsUtility.RunTimeNameSpace,
+                                ConstantsUtility.RunTimeRuleExecutorTypeName,
                                 "RuleExecutor"))();
 
             var excludedMethods = new[] { "ToString", "Equals", "GetHashCode", "GetType" };

@@ -11,6 +11,6 @@ namespace carenirvana.bre.model
 
         IList<RuleOutput> Outputs { get; }
 
-        IInputObject Input(string inputObjectName);
+        IInputObject Input { get; }
     }
 }

@@ -5,7 +5,6 @@ using carenirvana.bre.common.DataStructure;
 using carenirvana.bre.common.ObjectFactory;
 using carenirvana.bre.common.ObjectFactory.Impl;
 using carenirvana.bre.dataaccess;
-using carenirvana.bre.dataaccess.Impl.Postgres;
 using carenirvana.bre.model;
 using carenirvana.bre.model.Impl;
 using carenirvana.bre.repository;
@@ -66,7 +65,7 @@ namespace carenirvana.bre.engine
         {
             var repository = new RuleDataRepository(dataLayer, objectFactory);
             var uniqueIds = repository.GetUniqueIds(inputTable, uniqueIdColumnName);
-            dataSliceSet = new DataSliceSet<int>(uniqueIds, 5);
+            dataSliceSet = new DataSliceSet<int>(uniqueIds, 1000);
         }
 
         private void CreateBatchManager()
@@ -77,13 +76,12 @@ namespace carenirvana.bre.engine
         private void BuildRulesAssemblyAndMethods()
         {
             var buildAll = new BuildAll();
-            buildAll.Build(_ruleSetting);
+            buildAll.Build(_ruleSetting, inputTable);
         }
 
         private void CreateReader()
         {
             reader = new Reader(
-                        _ruleSetting.RuleDataCategory,
                         _ruleSetting.RuleModel,
                         new RuleDataRepository(dataLayer, objectFactory),
                         inputQueue,

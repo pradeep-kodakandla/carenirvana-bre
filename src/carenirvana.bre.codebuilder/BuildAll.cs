@@ -1,6 +1,7 @@
 ﻿using System.Runtime.Loader;
 using carenirvana.bre.codegenerator.Impl;
 using carenirvana.bre.model.Impl;
+using carenirvana.bre.utility;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 
@@ -8,12 +9,12 @@ namespace carenirvana.bre.codebuilder
 {
     public class BuildAll()
     {
-        public void Build(RuleSetting ruleSetting)
+        public void Build(RuleSetting ruleSetting, string inputTableName)
         {
-            LoadIntoCurrentAssembly(SerializeRuleFunctionsAndClasses(ruleSetting));
+            LoadIntoCurrentAssembly(SerializeRuleFunctionsAndClasses(ruleSetting, inputTableName));
         }
 
-        private string SerializeRuleFunctionsAndClasses(RuleSetting ruleSetting)
+        private string SerializeRuleFunctionsAndClasses(RuleSetting ruleSetting, string inputTableName)
         {
             var ruleFunctionSerializer = new CodeModelSerializerFactory()
                 .CreateCSharpSerializer(new RuleFunctionClassBuilder(ruleSetting.RuleFunction).ToModel())
@@ -25,16 +26,9 @@ namespace carenirvana.bre.codebuilder
 
             var inputObjectSerializer = string.Empty;
 
-            //create input object for all categories...
-            foreach (var category in ruleSetting.RuleDataCategory.Select(x => x.CategoryName))
-            {
-                if (ruleSetting.RuleModel.Where(x => x.CategoryName.Equals(category)).ToList().Count > 0)
-                {
-                    inputObjectSerializer += new CodeModelSerializerFactory()
-                        .CreateCSharpSerializer(new InputObjectBuilder(ruleSetting.RuleModel, category).ToModel())
-                        .Serialize();
-                }
-            }
+            inputObjectSerializer += new CodeModelSerializerFactory()
+                .CreateCSharpSerializer(new InputObjectBuilder(ruleSetting.RuleModel, inputTableName).ToModel())
+                .Serialize();
 
             return string.Join(Environment.NewLine, ruleFunctionSerializer, ruleClassSerializer, inputObjectSerializer);
         }
@@ -42,13 +36,12 @@ namespace carenirvana.bre.codebuilder
         private static void LoadIntoCurrentAssembly(string code)
         {
             var syntaxTree = CSharpSyntaxTree.ParseText(code);
-            var assemblyName = "carenirvana.bre.engine.runtime";
             var references = AppDomain.CurrentDomain.GetAssemblies()
                 .Where(a => !a.IsDynamic)
                 .Select(a => MetadataReference.CreateFromFile(a.Location))
                 .ToList();
 
-            var compilation = CSharpCompilation.Create(assemblyName)
+            var compilation = CSharpCompilation.Create(ConstantsUtility.RunTimeNameSpace)
                 .WithOptions(new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary))
                 .AddReferences(references)
                 .AddSyntaxTrees(syntaxTree);

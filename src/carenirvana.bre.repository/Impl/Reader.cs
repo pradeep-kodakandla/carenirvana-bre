@@ -3,19 +3,18 @@ using carenirvana.bre.common.DataStructure;
 using carenirvana.bre.common.Range;
 using carenirvana.bre.model;
 using carenirvana.bre.model.Impl;
+using carenirvana.bre.utility;
 
 namespace carenirvana.bre.repository.Impl
 {
-    public class Reader(
-                List<RuleDataCategory> ruleDataCategories, 
+    public class Reader( 
                 List<RuleModel> ruleModels, 
                 IRuleDataRepository ruleDataRepository,
                 IBlockingQueue<IWorkflowItem> workItems,
                 string inputTableName,
                 string uniqueIdColumnName) : IReader
     {
-        private readonly ConcurrentDictionary<string, ConcurrentDictionary<int, IInputObject>> allInputs = new();
-        private readonly List<RuleDataCategory> ruleDataCategories = ruleDataCategories;
+        private ConcurrentDictionary<int, IInputObject> allInputs = new();
         private readonly List<RuleModel> ruleModels = ruleModels;
         private readonly IRuleDataRepository ruleDataRepository = ruleDataRepository;
         private readonly IBlockingQueue<IWorkflowItem> workItems = workItems;
@@ -35,7 +34,7 @@ namespace carenirvana.bre.repository.Impl
 
         private void QueueItems(IRange<int> range)
         {
-            Parallel.ForEach(range.Values, item =>
+            Parallel.ForEach(range.Values, new ParallelOptions { MaxDegreeOfParallelism = 2 }, item =>
             {
                 workItems.Enqueue(GetWorkItem(item));
             });
@@ -43,51 +42,39 @@ namespace carenirvana.bre.repository.Impl
 
         private IWorkflowItem GetWorkItem(int id)
         {
-            ConcurrentDictionary<string, IInputObject> inputData = new();
-            foreach (var item in allInputs.Keys)
-            {
-                var inputObject = allInputs[item].Where(x => x.Key == id).FirstOrDefault().Value;
-                inputData.TryAdd(item, inputObject);
-            }
-            return new WorkflowItem(inputData, id);
+            return new WorkflowItem(allInputs[id], id);
         }
 
         private async Task LoadData(IRange<int> range)
         {
-            foreach (var ruleDataCategory in ruleDataCategories)
-            {
-                PrepareInputData(range, ruleDataCategory.CategoryName);
-            }
+            PrepareInputData(range);
         }
 
-        private void PrepareInputData(IRange<int> range, string categoryName)
+        private void PrepareInputData(IRange<int> range)
         {
-            allInputs.TryAdd(categoryName, ReadDataFromRepository(
-                categoryName,
-                "carenirvana.bre.engine.runtime",
-                "carenirvana.bre.engine.inputdata",
-                range));
+            allInputs = ReadDataFromRepository(
+                ConstantsUtility.RunTimeNameSpace,
+                ConstantsUtility.RunTimeInputDataTypeName,
+                range);
         }
 
-        private string BuildQuery(string categoryName, IRange<int> range)
+        private string BuildQuery(IRange<int> range)
         {
             var attributes = string.Join(",", ruleModels
-                .Where(x => x.CategoryName.Equals(categoryName))
                 .Select(x => x.DataFieldName));
             return $"select {uniqueIdColumnName},{attributes} from {inputTableName} where {uniqueIdColumnName} between {range.MinValue} and {range.MaxValue}";
         }
 
         private ConcurrentDictionary<int, IInputObject> ReadDataFromRepository(
-                string categoryName,
                 string assemblyName,
                 string nameSpace,
                 IRange<int> range)
         {
             return ruleDataRepository.GetInputDataAsync(
-                BuildQuery(categoryName, range),
+                BuildQuery(range),
                 assemblyName,
                 nameSpace,
-                categoryName);
+                inputTableName);
         }
     }
 }

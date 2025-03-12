@@ -20,8 +20,8 @@ namespace carenirvana.bre.codebuilder
         private void BuildRuleClass()
         {
             AddClassWithName("RuleExecutor", false)
-                .AddNamespace("carenirvana.bre.engine.ruleexecutor")
-                .AddNamespaceImports(["carenirvana.bre.engine.rulefunction", "System"]);
+                .AddNamespace(ConstantsUtility.RunTimeRuleExecutorTypeName)
+                .AddNamespaceImports([ConstantsUtility.RunTimeRuleFunctionTypeName, "System"]);
 
             AddRuleVariables();
             AddRuleMethods();

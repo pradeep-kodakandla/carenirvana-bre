@@ -1,5 +1,6 @@
 ﻿using carenirvana.bre.model;
 using carenirvana.bre.model.Impl;
+using carenirvana.bre.utility;
 
 namespace carenirvana.bre.workflow
 {
@@ -50,7 +51,8 @@ namespace carenirvana.bre.workflow
             };
             workItem.AddOutput(ruleOutput);
 
-            Console.WriteLine($"{ruleOutput}");
+            Console.WriteLine($"RuleOutput: UniqueId={ruleOutput.UniqueId}, Result={ruleOutput.Result}, RuleId={ruleOutput.RuleId}, RuleName={ruleOutput.RuleName}, OutputMessage={ruleOutput.OutputMessage}");
+
         }
 
         private void HandleMethodInvocationError(IWorkflowItem workItem, string methodName, Exception ex)
@@ -73,12 +75,35 @@ namespace carenirvana.bre.workflow
             var parameters = new List<object>();
             foreach (var param in rule.Parameters)
             {
-                var inputObject = workItem.Input(param.ParameterName);
-                parameters.Add(inputObject);
+                var parameterName = param.ParameterName;
+                if (!IsParamAFunction(parameterName))
+                { 
+                    var inputObject = workItem.Input.GetReflector().GetValue(parameterName);
+                    parameters.Add(inputObject);
+                }
+                else
+                {
+                    var ruleFunction = _ruleSetting.RuleFunction.FirstOrDefault(x => x.Name == parameterName);
+                    if (ruleFunction != null)
+                    {
+                        foreach (var ruleParam in ruleFunction.Parameters)
+                        {
+                            var inputObject = workItem.Input.GetReflector().GetValue(ruleParam.ParameterName);
+                            parameters.Add(inputObject);
+                        }
+                    }
+                }
             }
 
             return parameters.ToArray();
         }
+
+        private bool IsParamAFunction(string fieldName)
+        {
+            return _ruleSetting.RuleFunction.Any(x => x.Name == fieldName);
+        }
+
+
     }
 }
 

@@ -19,7 +19,7 @@ namespace carenirvana.bre.codebuilder
         private void BuildRuleFunctionClass()
         {
             AddClassWithName("RuleFunctionEx", false)
-                .AddNamespace("carenirvana.bre.engine.rulefunction");
+                .AddNamespace(ConstantsUtility.RunTimeRuleFunctionTypeName);
 
             foreach (var ruleFunction in _ruleFunctions)
             {
