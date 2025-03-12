@@ -11,6 +11,7 @@ using carenirvana.bre.repository;
 using carenirvana.bre.repository.Impl;
 using carenirvana.bre.workflow;
 using Newtonsoft.Json;
+using System;
 
 namespace carenirvana.bre.engine
 {
@@ -31,6 +32,7 @@ namespace carenirvana.bre.engine
         private RuleInvoker ruleInvoker;
         private WorkItemProcessor workItemProcessor;
         private IDataSliceSet<int> dataSliceSet;
+        private IBulkWriter bulkWriter;
 
         private Task batchManagerTask;
         private Task inputQueueCompleteTask;
@@ -53,12 +55,22 @@ namespace carenirvana.bre.engine
             CreateUniqueSet();
             CreateBatchManager();
             CreateWorkflowWorkshopRunner();
+            CreateBulkWriter();
             StartTasks();
         }
 
         public void RunARule()
         {
             ruleInvoker.InvokeRuleMethod(string.Empty, null);
+        }
+
+        private void CreateBulkWriter()
+        {
+            bulkWriter = new PostgresBulkWriter(
+                        outputQueue, 
+                        new RuleDataRepository(dataLayer, objectFactory), 
+                        "ruleoutput", 
+                        tokenSource);
         }
 
         private void CreateUniqueSet()
@@ -96,7 +108,7 @@ namespace carenirvana.bre.engine
 
         private void CreateWorkflowWorkshopRunner()
         {
-            ruleInvoker = new RuleInvoker(workflowAssemblyCacher, _ruleSetting);
+            ruleInvoker = new RuleInvoker(workflowAssemblyCacher, _ruleSetting, new Random().Next(1, int.MaxValue));
             workItemProcessor = new WorkItemProcessor(inputQueue, outputQueue, ruleInvoker);
             workflowWorkshopRunner = new WorkflowWorkshopRunner(workItemProcessor);
         }
@@ -106,6 +118,13 @@ namespace carenirvana.bre.engine
             batchManagerTask = Task.Run(async() => await batchManager.Run());
             inputQueueCompleteTask = batchManagerTask.ContinueWith(t => inputQueue.CompleteAdding(), tokenSource.Token);
             workShopTask = Task.Run(()=> workflowWorkshopRunner.Run(), tokenSource.Token);
+
+            var outputDataCompleteTask = 
+                workShopTask.ContinueWith(t=> outputQueue.CompleteAdding(), tokenSource.Token);
+            var bulkWriterTask = new Task(()=>bulkWriter.Write(), tokenSource.Token);
+            bulkWriterTask.Start();
+
+            Task.WaitAll([inputQueueCompleteTask, outputDataCompleteTask, bulkWriterTask], tokenSource.Token);
         }
     }
 }

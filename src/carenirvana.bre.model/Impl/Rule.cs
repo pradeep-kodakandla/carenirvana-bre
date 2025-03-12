@@ -4,6 +4,10 @@ namespace carenirvana.bre.model.Impl
 {
     public class Rule
     {
+
+        [JsonProperty("ruleid")]
+        public string RuleId { get; set; }
+
         [JsonProperty("rulename")]
         public string? RuleName { get; set; }
 

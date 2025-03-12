@@ -1,13 +1,15 @@
 ﻿using carenirvana.bre.model;
 using carenirvana.bre.model.Impl;
 using carenirvana.bre.utility;
+using System.Reflection;
 
 namespace carenirvana.bre.workflow
 {
-    public class RuleInvoker(WorkflowAssemblyCacher workflowAssemblyCacher, RuleSetting ruleSetting)
+    public class RuleInvoker(WorkflowAssemblyCacher workflowAssemblyCacher, RuleSetting ruleSetting, int runId)
     {
         private readonly WorkflowAssemblyCacher _workflowAssemblyCacher = workflowAssemblyCacher ?? throw new ArgumentNullException(nameof(workflowAssemblyCacher));
         private readonly RuleSetting _ruleSetting  = ruleSetting;
+        private readonly int runId = runId;
 
         public void InvokeRuleMethods(IWorkflowItem workItem)
         {
@@ -43,9 +45,11 @@ namespace carenirvana.bre.workflow
         {
             var ruleOutput = new RuleOutput
             {
+                RunId = runId,
                 UniqueId = workItem.Id,
                 Result = bool.Parse(value.ToString()),
-                RuleId = 1,
+                RunDtTm = DateTime.Now.Date,
+                RuleId = int.Parse(GetRuleId(methodName)), // need to find the rule id...
                 RuleName = methodName,
                 OutputMessage = ""
             };
@@ -101,6 +105,13 @@ namespace carenirvana.bre.workflow
         private bool IsParamAFunction(string fieldName)
         {
             return _ruleSetting.RuleFunction.Any(x => x.Name == fieldName);
+        }
+
+        private string GetRuleId(string ruleName)
+        {
+            return _ruleSetting.RuleNode
+                .SelectMany(node => node.Rules)
+                .FirstOrDefault(r => r.RuleName == ruleName).RuleId;
         }
 
 

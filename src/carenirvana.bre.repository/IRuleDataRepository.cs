@@ -12,5 +12,7 @@ namespace carenirvana.bre.repository
                     string typeName);
 
         IList<int> GetUniqueIds(string tableName, string uniqueIdColumnName);
+
+        void BulkInsert(IWorkflowItem workItem, string destTableName);
     }
 }

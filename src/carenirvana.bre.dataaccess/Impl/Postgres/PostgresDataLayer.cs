@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using carenirvana.bre.common;
+using carenirvana.bre.model;
 using Npgsql;
 
 namespace carenirvana.bre.dataaccess.Impl.Postgres
@@ -11,12 +12,12 @@ namespace carenirvana.bre.dataaccess.Impl.Postgres
         private readonly int retryCount;
 
         public PostgresDataLayer(
-                string serverName, 
-                string databaseName, 
-                string userName, 
-                string password, 
-                int port, 
-                int timeOut = 180, 
+                string serverName,
+                string databaseName,
+                string userName,
+                string password,
+                int port,
+                int timeOut = 180,
                 int retryCount = 3)
         {
             connectionString = BuildConnectionString(serverName, databaseName, userName, password, port);
@@ -72,6 +73,24 @@ namespace carenirvana.bre.dataaccess.Impl.Postgres
                         BuildCommandWithParameters(CommandType.Text, query, parmeterWithValues).ExecuteScalar());
         }
 
+        public void BulkInsert(IWorkflowItem workItem, string destTableName)
+        {
+            using var conn = Connection();
+            using var writer = conn.BeginBinaryImport($"COPY {destTableName} (RunId, UniqueId, RuleId, RuleName, RunDtTm, Result, OutputMessage) FROM STDIN (FORMAT BINARY)");
+            foreach (var output in workItem.Outputs)
+            {
+                writer.StartRow();
+                writer.Write(output.RunId, NpgsqlTypes.NpgsqlDbType.Integer);
+                writer.Write(output.UniqueId, NpgsqlTypes.NpgsqlDbType.Integer);
+                writer.Write(output.RuleId, NpgsqlTypes.NpgsqlDbType.Integer);
+                writer.Write(output.RuleName, NpgsqlTypes.NpgsqlDbType.Varchar);
+                writer.Write(output.RunDtTm, NpgsqlTypes.NpgsqlDbType.Timestamp);
+                writer.Write(output.Result, NpgsqlTypes.NpgsqlDbType.Boolean);
+                writer.Write(output.OutputMessage, NpgsqlTypes.NpgsqlDbType.Varchar);
+            }
+            writer.Complete();
+        }
+
         private string BuildConnectionString(string serverName, string databaseName, string userName, string password, int port)
         {
             var connectionStringBuilder = new NpgsqlConnectionStringBuilder
@@ -93,7 +112,7 @@ namespace carenirvana.bre.dataaccess.Impl.Postgres
         {
             var connection = new NpgsqlConnection(connectionString);
             connection.Open();
-            return connection;  
+            return connection;
         }
 
         private IDbCommand BuildCommandWithParameters(
@@ -115,15 +134,15 @@ namespace carenirvana.bre.dataaccess.Impl.Postgres
                 if (IsCommaSeparated(parameter.Value))
                 {
                     var values = Convert.ToString(parameter.Value).Split(',');
-                    var intermediateParameters  = new string[values.Length];
+                    var intermediateParameters = new string[values.Length];
 
-                    for(var i = 0; i <values.Length; i++)
+                    for (var i = 0; i < values.Length; i++)
                     {
                         if (values[i] != null)
                         {
                             intermediateParameters[i] = parameter.Key + i.ToString();
                             npgsqlParameter = new NpgsqlParameter(
-                                        intermediateParameters[i], 
+                                        intermediateParameters[i],
                                         values[i]);
                             command.Parameters.Add(npgsqlParameter);
                         }

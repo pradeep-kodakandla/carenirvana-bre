@@ -17,5 +17,6 @@
 	
 	<ItemGroup>
 	  <ProjectReference Include="..\carenirvana.bre.common\carenirvana.bre.common.csproj" />
+	  <ProjectReference Include="..\carenirvana.bre.model\carenirvana.bre.model.csproj" />
 	</ItemGroup>
 </Project>

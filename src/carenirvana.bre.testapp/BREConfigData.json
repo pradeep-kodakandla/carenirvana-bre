@@ -220,6 +220,7 @@
       "rulesetname": "ruleset1",
       "rules": [
         {
+          "ruleid" : "1",
           "rulename": "CouldBeDiabetic",
           "batchrule": "true",
           "errormessage": "CouldBeDiabetic rule failed.",
@@ -249,6 +250,7 @@
           ]
         },
         {
+          "ruleid": "2",
           "rulename": "IsMemberNameCareNirvana",
           "batchrule": "true",
           "errormessage": "IsMemberNameCareNirvana rule failed.",

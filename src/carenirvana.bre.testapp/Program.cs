@@ -5,6 +5,7 @@ Console.WriteLine("Hello, World!");
 
 var rEngine = new RuleEngine(File.ReadAllText(@"D:\repos\carenirvana-bre\src\carenirvana.bre.testapp\BREConfigData.json"));
 rEngine.ExecuteRules("");
+Console.WriteLine($"run completed...");
 Console.ReadLine();
 
 // 1 mil (input table)

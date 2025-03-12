@@ -3,24 +3,16 @@
   "WorkspaceRootPath": "D:\\repos\\carenirvana-bre\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{99E93328-4EBE-4113-8B82-22FEBE92B996}|src\\carenirvana.bre.workflow\\carenirvana.bre.workflow.csproj|d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\workflowassemblycacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{99E93328-4EBE-4113-8B82-22FEBE92B996}|src\\carenirvana.bre.workflow\\carenirvana.bre.workflow.csproj|solutionrelative:src\\carenirvana.bre.workflow\\workflowassemblycacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2BCD7E1-4ACD-4D24-A317-26FCD09E39F0}|src\\carenirvana.bre.testapp\\carenirvana.bre.testapp.csproj|d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.testapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2BCD7E1-4ACD-4D24-A317-26FCD09E39F0}|src\\carenirvana.bre.testapp\\carenirvana.bre.testapp.csproj|solutionrelative:src\\carenirvana.bre.testapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{99E93328-4EBE-4113-8B82-22FEBE92B996}|src\\carenirvana.bre.workflow\\carenirvana.bre.workflow.csproj|d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\ruleinvoker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{99E93328-4EBE-4113-8B82-22FEBE92B996}|src\\carenirvana.bre.workflow\\carenirvana.bre.workflow.csproj|solutionrelative:src\\carenirvana.bre.workflow\\ruleinvoker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2BCD7E1-4ACD-4D24-A317-26FCD09E39F0}|src\\carenirvana.bre.testapp\\carenirvana.bre.testapp.csproj|d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.testapp\\breconfigdata.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A2BCD7E1-4ACD-4D24-A317-26FCD09E39F0}|src\\carenirvana.bre.testapp\\carenirvana.bre.testapp.csproj|solutionrelative:src\\carenirvana.bre.testapp\\breconfigdata.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{63D7FEBE-8395-4FDA-8F1D-C4721081FD97}|src\\carenirvana.bre.repository\\carenirvana.bre.repository.csproj|d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.repository\\impl\\postgresbulkwriter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63D7FEBE-8395-4FDA-8F1D-C4721081FD97}|src\\carenirvana.bre.repository\\carenirvana.bre.repository.csproj|solutionrelative:src\\carenirvana.bre.repository\\impl\\postgresbulkwriter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{99E93328-4EBE-4113-8B82-22FEBE92B996}|src\\carenirvana.bre.workflow\\carenirvana.bre.workflow.csproj|d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\workitemprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{99E93328-4EBE-4113-8B82-22FEBE92B996}|src\\carenirvana.bre.workflow\\carenirvana.bre.workflow.csproj|solutionrelative:src\\carenirvana.bre.workflow\\workitemprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63D7FEBE-8395-4FDA-8F1D-C4721081FD97}|src\\carenirvana.bre.repository\\carenirvana.bre.repository.csproj|d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.repository\\impl\\reader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63D7FEBE-8395-4FDA-8F1D-C4721081FD97}|src\\carenirvana.bre.repository\\carenirvana.bre.repository.csproj|solutionrelative:src\\carenirvana.bre.repository\\impl\\reader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{689690B2-E412-4833-8B50-3EBE291DD77D}|src\\carenirvana.bre.engine\\carenirvana.bre.engine.csproj|d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.engine\\ruleenginerunner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -29,6 +21,50 @@
     {
       "AbsoluteMoniker": "D:0:0:{99E93328-4EBE-4113-8B82-22FEBE92B996}|src\\carenirvana.bre.workflow\\carenirvana.bre.workflow.csproj|d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\workflowworkshoprunner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{99E93328-4EBE-4113-8B82-22FEBE92B996}|src\\carenirvana.bre.workflow\\carenirvana.bre.workflow.csproj|solutionrelative:src\\carenirvana.bre.workflow\\workflowworkshoprunner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99E93328-4EBE-4113-8B82-22FEBE92B996}|src\\carenirvana.bre.workflow\\carenirvana.bre.workflow.csproj|d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\ruleinvoker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99E93328-4EBE-4113-8B82-22FEBE92B996}|src\\carenirvana.bre.workflow\\carenirvana.bre.workflow.csproj|solutionrelative:src\\carenirvana.bre.workflow\\ruleinvoker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{411176BA-6027-4182-A544-99222A78C13D}|src\\carenirvana.bre.model\\carenirvana.bre.model.csproj|d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.model\\impl\\rule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{411176BA-6027-4182-A544-99222A78C13D}|src\\carenirvana.bre.model\\carenirvana.bre.model.csproj|solutionrelative:src\\carenirvana.bre.model\\impl\\rule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2BCD7E1-4ACD-4D24-A317-26FCD09E39F0}|src\\carenirvana.bre.testapp\\carenirvana.bre.testapp.csproj|d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.testapp\\breconfigdata.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2BCD7E1-4ACD-4D24-A317-26FCD09E39F0}|src\\carenirvana.bre.testapp\\carenirvana.bre.testapp.csproj|solutionrelative:src\\carenirvana.bre.testapp\\breconfigdata.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{411176BA-6027-4182-A544-99222A78C13D}|src\\carenirvana.bre.model\\carenirvana.bre.model.csproj|d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.model\\impl\\rulenode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{411176BA-6027-4182-A544-99222A78C13D}|src\\carenirvana.bre.model\\carenirvana.bre.model.csproj|solutionrelative:src\\carenirvana.bre.model\\impl\\rulenode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63D7FEBE-8395-4FDA-8F1D-C4721081FD97}|src\\carenirvana.bre.repository\\carenirvana.bre.repository.csproj|d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.repository\\impl\\ruledatarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63D7FEBE-8395-4FDA-8F1D-C4721081FD97}|src\\carenirvana.bre.repository\\carenirvana.bre.repository.csproj|solutionrelative:src\\carenirvana.bre.repository\\impl\\ruledatarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B25FBD1A-9D97-468A-A03C-D36F71C8A880}|src\\carenirvana.bre.dataaccess\\carenirvana.bre.dataaccess.csproj|d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.dataaccess\\impl\\postgres\\postgresdatalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B25FBD1A-9D97-468A-A03C-D36F71C8A880}|src\\carenirvana.bre.dataaccess\\carenirvana.bre.dataaccess.csproj|solutionrelative:src\\carenirvana.bre.dataaccess\\impl\\postgres\\postgresdatalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63D7FEBE-8395-4FDA-8F1D-C4721081FD97}|src\\carenirvana.bre.repository\\carenirvana.bre.repository.csproj|d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.repository\\impl\\reader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63D7FEBE-8395-4FDA-8F1D-C4721081FD97}|src\\carenirvana.bre.repository\\carenirvana.bre.repository.csproj|solutionrelative:src\\carenirvana.bre.repository\\impl\\reader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63D7FEBE-8395-4FDA-8F1D-C4721081FD97}|src\\carenirvana.bre.repository\\carenirvana.bre.repository.csproj|d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.repository\\iruledatarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63D7FEBE-8395-4FDA-8F1D-C4721081FD97}|src\\carenirvana.bre.repository\\carenirvana.bre.repository.csproj|solutionrelative:src\\carenirvana.bre.repository\\iruledatarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B25FBD1A-9D97-468A-A03C-D36F71C8A880}|src\\carenirvana.bre.dataaccess\\carenirvana.bre.dataaccess.csproj|d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.dataaccess\\iabstractdatalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B25FBD1A-9D97-468A-A03C-D36F71C8A880}|src\\carenirvana.bre.dataaccess\\carenirvana.bre.dataaccess.csproj|solutionrelative:src\\carenirvana.bre.dataaccess\\iabstractdatalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{411176BA-6027-4182-A544-99222A78C13D}|src\\carenirvana.bre.model\\carenirvana.bre.model.csproj|d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.model\\impl\\workflowitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{411176BA-6027-4182-A544-99222A78C13D}|src\\carenirvana.bre.model\\carenirvana.bre.model.csproj|solutionrelative:src\\carenirvana.bre.model\\impl\\workflowitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{689690B2-E412-4833-8B50-3EBE291DD77D}|src\\carenirvana.bre.engine\\carenirvana.bre.engine.csproj|d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.engine\\impl\\ruleengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{689690B2-E412-4833-8B50-3EBE291DD77D}|src\\carenirvana.bre.engine\\carenirvana.bre.engine.csproj|solutionrelative:src\\carenirvana.bre.engine\\impl\\ruleengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +74,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,88 +86,211 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Reader.cs",
-              "DocumentMoniker": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.repository\\Impl\\Reader.cs",
-              "RelativeDocumentMoniker": "src\\carenirvana.bre.repository\\Impl\\Reader.cs",
-              "ToolTip": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.repository\\Impl\\Reader.cs",
-              "RelativeToolTip": "src\\carenirvana.bre.repository\\Impl\\Reader.cs",
-              "ViewState": "AgIAAEYAAAAAAAAAAAAhwFUAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T15:52:18.78Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "RuleEngineRunner.cs",
-              "DocumentMoniker": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.engine\\RuleEngineRunner.cs",
-              "RelativeDocumentMoniker": "src\\carenirvana.bre.engine\\RuleEngineRunner.cs",
-              "ToolTip": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.engine\\RuleEngineRunner.cs",
-              "RelativeToolTip": "src\\carenirvana.bre.engine\\RuleEngineRunner.cs",
-              "ViewState": "AgIAAFcAAAAAAAAAAAApwGEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T15:51:52.859Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "RuleInvoker.cs",
-              "DocumentMoniker": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\RuleInvoker.cs",
-              "RelativeDocumentMoniker": "src\\carenirvana.bre.workflow\\RuleInvoker.cs",
-              "ToolTip": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\RuleInvoker.cs",
-              "RelativeToolTip": "src\\carenirvana.bre.workflow\\RuleInvoker.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADgv0UAAABiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T15:45:15.688Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "WorkItemProcessor.cs",
-              "DocumentMoniker": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\WorkItemProcessor.cs",
-              "RelativeDocumentMoniker": "src\\carenirvana.bre.workflow\\WorkItemProcessor.cs",
-              "ToolTip": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\WorkItemProcessor.cs",
-              "RelativeToolTip": "src\\carenirvana.bre.workflow\\WorkItemProcessor.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAQwBIAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T15:44:58.501Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "WorkflowAssemblyCacher.cs",
-              "DocumentMoniker": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\WorkflowAssemblyCacher.cs",
-              "RelativeDocumentMoniker": "src\\carenirvana.bre.workflow\\WorkflowAssemblyCacher.cs",
-              "ToolTip": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\WorkflowAssemblyCacher.cs",
-              "RelativeToolTip": "src\\carenirvana.bre.workflow\\WorkflowAssemblyCacher.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.testapp\\Program.cs",
+              "RelativeDocumentMoniker": "src\\carenirvana.bre.testapp\\Program.cs",
+              "ToolTip": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.testapp\\Program.cs",
+              "RelativeToolTip": "src\\carenirvana.bre.testapp\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T15:44:51.515Z",
+              "WhenOpened": "2025-03-12T15:19:46.39Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "WorkflowWorkshopRunner.cs",
-              "DocumentMoniker": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\WorkflowWorkshopRunner.cs",
-              "RelativeDocumentMoniker": "src\\carenirvana.bre.workflow\\WorkflowWorkshopRunner.cs",
-              "ToolTip": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\WorkflowWorkshopRunner.cs",
-              "RelativeToolTip": "src\\carenirvana.bre.workflow\\WorkflowWorkshopRunner.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAwAAAAAAAAAA==",
+              "Title": "Rule.cs",
+              "DocumentMoniker": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.model\\Impl\\Rule.cs",
+              "RelativeDocumentMoniker": "src\\carenirvana.bre.model\\Impl\\Rule.cs",
+              "ToolTip": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.model\\Impl\\Rule.cs",
+              "RelativeToolTip": "src\\carenirvana.bre.model\\Impl\\Rule.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T15:44:48.953Z"
+              "WhenOpened": "2025-03-12T15:09:07.027Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
+              "Title": "RuleNode.cs",
+              "DocumentMoniker": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.model\\Impl\\RuleNode.cs",
+              "RelativeDocumentMoniker": "src\\carenirvana.bre.model\\Impl\\RuleNode.cs",
+              "ToolTip": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.model\\Impl\\RuleNode.cs",
+              "RelativeToolTip": "src\\carenirvana.bre.model\\Impl\\RuleNode.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T15:09:02.41Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "BREConfigData.json",
               "DocumentMoniker": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.testapp\\BREConfigData.json",
               "RelativeDocumentMoniker": "src\\carenirvana.bre.testapp\\BREConfigData.json",
               "ToolTip": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.testapp\\BREConfigData.json",
               "RelativeToolTip": "src\\carenirvana.bre.testapp\\BREConfigData.json",
-              "ViewState": "AgIAAOoAAAAAAAAAAAAEwPcAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAANUAAAAAAAAAAAAAAN4AAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-11T14:04:23.295Z"
+              "WhenOpened": "2025-03-12T15:08:07.117Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RuleInvoker.cs",
+              "DocumentMoniker": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\RuleInvoker.cs",
+              "RelativeDocumentMoniker": "src\\carenirvana.bre.workflow\\RuleInvoker.cs",
+              "ToolTip": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\RuleInvoker.cs",
+              "RelativeToolTip": "src\\carenirvana.bre.workflow\\RuleInvoker.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAYwDUAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T14:51:59.142Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Reader.cs",
+              "DocumentMoniker": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.repository\\Impl\\Reader.cs",
+              "RelativeDocumentMoniker": "src\\carenirvana.bre.repository\\Impl\\Reader.cs",
+              "ToolTip": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.repository\\Impl\\Reader.cs",
+              "RelativeToolTip": "src\\carenirvana.bre.repository\\Impl\\Reader.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T14:50:55.214Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "WorkflowItem.cs",
+              "DocumentMoniker": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.model\\Impl\\WorkflowItem.cs",
+              "RelativeDocumentMoniker": "src\\carenirvana.bre.model\\Impl\\WorkflowItem.cs",
+              "ToolTip": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.model\\Impl\\WorkflowItem.cs",
+              "RelativeToolTip": "src\\carenirvana.bre.model\\Impl\\WorkflowItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T13:36:04.47Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "RuleEngine.cs",
+              "DocumentMoniker": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.engine\\Impl\\RuleEngine.cs",
+              "RelativeDocumentMoniker": "src\\carenirvana.bre.engine\\Impl\\RuleEngine.cs",
+              "ToolTip": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.engine\\Impl\\RuleEngine.cs",
+              "RelativeToolTip": "src\\carenirvana.bre.engine\\Impl\\RuleEngine.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwC8AAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T13:32:56.014Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "PostgresDataLayer.cs",
+              "DocumentMoniker": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.dataaccess\\Impl\\Postgres\\PostgresDataLayer.cs",
+              "RelativeDocumentMoniker": "src\\carenirvana.bre.dataaccess\\Impl\\Postgres\\PostgresDataLayer.cs",
+              "ToolTip": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.dataaccess\\Impl\\Postgres\\PostgresDataLayer.cs",
+              "RelativeToolTip": "src\\carenirvana.bre.dataaccess\\Impl\\Postgres\\PostgresDataLayer.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAADwv1sAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T13:25:49.89Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IAbstractDataLayer.cs",
+              "DocumentMoniker": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.dataaccess\\IAbstractDataLayer.cs",
+              "RelativeDocumentMoniker": "src\\carenirvana.bre.dataaccess\\IAbstractDataLayer.cs",
+              "ToolTip": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.dataaccess\\IAbstractDataLayer.cs",
+              "RelativeToolTip": "src\\carenirvana.bre.dataaccess\\IAbstractDataLayer.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAIwDkAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T13:24:34.277Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "RuleDataRepository.cs",
+              "DocumentMoniker": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.repository\\Impl\\RuleDataRepository.cs",
+              "RelativeDocumentMoniker": "src\\carenirvana.bre.repository\\Impl\\RuleDataRepository.cs",
+              "ToolTip": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.repository\\Impl\\RuleDataRepository.cs",
+              "RelativeToolTip": "src\\carenirvana.bre.repository\\Impl\\RuleDataRepository.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAowCkAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T13:23:51.168Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "IRuleDataRepository.cs",
+              "DocumentMoniker": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.repository\\IRuleDataRepository.cs",
+              "RelativeDocumentMoniker": "src\\carenirvana.bre.repository\\IRuleDataRepository.cs",
+              "ToolTip": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.repository\\IRuleDataRepository.cs",
+              "RelativeToolTip": "src\\carenirvana.bre.repository\\IRuleDataRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T13:23:06.969Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "WorkItemProcessor.cs",
+              "DocumentMoniker": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\WorkItemProcessor.cs",
+              "RelativeDocumentMoniker": "src\\carenirvana.bre.workflow\\WorkItemProcessor.cs",
+              "ToolTip": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\WorkItemProcessor.cs",
+              "RelativeToolTip": "src\\carenirvana.bre.workflow\\WorkItemProcessor.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAxwCEAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T12:51:45.544Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "WorkflowWorkshopRunner.cs",
+              "DocumentMoniker": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\WorkflowWorkshopRunner.cs",
+              "RelativeDocumentMoniker": "src\\carenirvana.bre.workflow\\WorkflowWorkshopRunner.cs",
+              "ToolTip": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\WorkflowWorkshopRunner.cs",
+              "RelativeToolTip": "src\\carenirvana.bre.workflow\\WorkflowWorkshopRunner.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T12:51:42.894Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RuleEngineRunner.cs",
+              "DocumentMoniker": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.engine\\RuleEngineRunner.cs",
+              "RelativeDocumentMoniker": "src\\carenirvana.bre.engine\\RuleEngineRunner.cs",
+              "ToolTip": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.engine\\RuleEngineRunner.cs",
+              "RelativeToolTip": "src\\carenirvana.bre.engine\\RuleEngineRunner.cs",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAkwGkAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T12:51:05.718Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PostgresBulkWriter.cs",
+              "DocumentMoniker": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.repository\\Impl\\PostgresBulkWriter.cs",
+              "RelativeDocumentMoniker": "src\\carenirvana.bre.repository\\Impl\\PostgresBulkWriter.cs",
+              "ToolTip": "D:\\repos\\carenirvana-bre\\src\\carenirvana.bre.repository\\Impl\\PostgresBulkWriter.cs",
+              "RelativeToolTip": "src\\carenirvana.bre.repository\\Impl\\PostgresBulkWriter.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAADwvxkAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T12:50:23.66Z",
+              "EditorCaption": ""
             }
           ]
         }

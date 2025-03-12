@@ -37,6 +37,11 @@ namespace carenirvana.bre.repository.Impl
             return result;
         }
 
+        public void BulkInsert(IWorkflowItem workItem, string destTableName)
+        {
+            dataLayer.BulkInsert(workItem, destTableName);
+        }
+
         private ConcurrentDictionary<int, IInputObject> GetInputDataInternal(
                     string query,
                     string assemblyName,
