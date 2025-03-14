@@ -220,7 +220,7 @@
       "rulesetname": "ruleset1",
       "rules": [
         {
-          "ruleid" : "1",
+          "ruleid": "1",
           "rulename": "CouldBeDiabetic",
           "batchrule": "true",
           "errormessage": "CouldBeDiabetic rule failed.",
@@ -232,6 +232,10 @@
             },
             {
               "expression": "age > 60",
+              "logiccondition": "AND"
+            },
+            {
+              "expression": "weight > 110",
               "logiccondition": ""
             }
           ],
@@ -246,6 +250,11 @@
               "paramname": "age",
               "fieldname": "age",
               "type": "int"
+            },
+            {
+              "paramname": "weight",
+              "fieldname": "weight",
+              "type": "double"
             }
           ]
         },
@@ -267,6 +276,69 @@
               "paramname": "memberfullname",
               "fieldname": "memberfullname",
               "type": "string"
+            }
+          ]
+        },
+        {
+          "ruleid": "3",
+          "rulename": "IsMemberFromIndia",
+          "batchrule": "true",
+          "errormessage": "IsMemberFromIndia rule failed.",
+          "enabled": true,
+          "expressions": [
+            {
+              "expression": "city == \"india\"",
+              "logiccondition": ""
+            }
+          ],
+          "successevent": "WARN",
+          "ruleparams": [
+            {
+              "paramname": "city",
+              "fieldname": "city",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "ruleid": "4",
+          "rulename": "IsMemberAdult",
+          "batchrule": "true",
+          "errormessage": "IsMemberAdult rule failed.",
+          "enabled": true,
+          "expressions": [
+            {
+              "expression": "age >= 18",
+              "logiccondition": ""
+            }
+          ],
+          "successevent": "WARN",
+          "ruleparams": [
+            {
+              "paramname": "age",
+              "fieldname": "age",
+              "type": "int"
+            }
+          ]
+        },
+        {
+          "ruleid": "5",
+          "rulename": "IsMemberWeightValid",
+          "batchrule": "true",
+          "errormessage": "IsMemberWeightValid rule failed.",
+          "enabled": true,
+          "expressions": [
+            {
+              "expression": "weight > 0",
+              "logiccondition": ""
+            }
+          ],
+          "successevent": "WARN",
+          "ruleparams": [
+            {
+              "paramname": "weight",
+              "fieldname": "weight",
+              "type": "double"
             }
           ]
         }

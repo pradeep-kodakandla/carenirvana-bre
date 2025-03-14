@@ -31,7 +31,7 @@ namespace carenirvana.bre.codebuilder
                     }
                     else
                     {
-                        methodBody.Append($"({ruleExpression.Expression}) {ruleExpression.LogicCondition} ");
+                        methodBody.Append($"({ruleExpression.Expression}) {HelperFunctions.ParseLoginExpression(ruleExpression.LogicCondition)} ");
                     }
                 }
             }

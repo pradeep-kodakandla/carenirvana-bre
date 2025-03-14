@@ -12,40 +12,52 @@ using carenirvana.bre.repository.Impl;
 using carenirvana.bre.workflow;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Concurrent;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace carenirvana.bre.engine
 {
-    public class RuleEngineRunner(IAbstractDataLayer dataLayer, string inputTable, string uniqueIdColumnName)
+    public class RuleEngineRunner
     {
-        private readonly IBlockingQueue<IWorkflowItem> inputQueue = new BlockingQueue<IWorkflowItem>();
-        private readonly IBlockingQueue<IWorkflowItem> outputQueue = new BlockingQueue<IWorkflowItem>();
-        private readonly IObjectFactory objectFactory = new ObjectFactory();
-        private readonly IAbstractDataLayer dataLayer = dataLayer;
-        private readonly string inputTable = inputTable;
-        private readonly string uniqueIdColumnName = uniqueIdColumnName;
-        private readonly CancellationTokenSource tokenSource = new();
+        private readonly IBlockingQueue<IWorkflowItem> _inputQueue;
+        private readonly IBlockingQueue<IWorkflowItem> _outputQueue;
+        private readonly IObjectFactory _objectFactory;
+        private readonly IAbstractDataLayer _dataLayer;
+        private readonly string _inputTable;
+        private readonly string _uniqueIdColumnName;
+        private readonly CancellationTokenSource _tokenSource;
         private RuleSetting _ruleSetting;
-        private IReader reader;
-        private IBatchManager batchManager;
-        private WorkflowAssemblyCacher workflowAssemblyCacher;
-        private WorkflowWorkshopRunner workflowWorkshopRunner;
-        private RuleInvoker ruleInvoker;
-        private WorkItemProcessor workItemProcessor;
-        private IDataSliceSet<int> dataSliceSet;
-        private IBulkWriter bulkWriter;
+        private IReader _reader;
+        private IBatchManager _batchManager;
+        private WorkflowAssemblyCacher _workflowAssemblyCacher;
+        private WorkflowWorkshopRunner _workflowWorkshopRunner;
+        private RuleInvoker _ruleInvoker;
+        private WorkItemProcessor _workItemProcessor;
+        private IDataSliceSet<int> _dataSliceSet;
+        private IBulkWriter _bulkWriter;
 
-        private Task batchManagerTask;
-        private Task inputQueueCompleteTask;
-        private Task workShopTask;
+        private Task _batchManagerTask;
+        private Task _inputQueueCompleteTask;
+        private Task _workShopTask;
+
+        public RuleEngineRunner(IAbstractDataLayer dataLayer, string inputTable, string uniqueIdColumnName)
+        {
+            _inputQueue = new BlockingQueue<IWorkflowItem>();
+            _outputQueue = new BlockingQueue<IWorkflowItem>();
+            _objectFactory = new ObjectFactory();
+            _dataLayer = dataLayer ?? throw new ArgumentNullException(nameof(dataLayer));
+            _inputTable = inputTable ?? throw new ArgumentNullException(nameof(inputTable));
+            _uniqueIdColumnName = uniqueIdColumnName ?? throw new ArgumentNullException(nameof(uniqueIdColumnName));
+            _tokenSource = new CancellationTokenSource();
+        }
 
         public void Init(string breJson)
         {
-            _ruleSetting = JsonConvert.DeserializeObject<RuleSetting>(breJson) ?? 
+            _ruleSetting = JsonConvert.DeserializeObject<RuleSetting>(breJson) ??
                         throw new InvalidOperationException("Invalid JSON for RuleSetting");
 
-            // Build rule assembly methods
             BuildRulesAssemblyAndMethods();
-
             CreateAssemblyCacher();
         }
 
@@ -61,70 +73,71 @@ namespace carenirvana.bre.engine
 
         public void RunARule()
         {
-            ruleInvoker.InvokeRuleMethod(string.Empty, null);
+            _ruleInvoker.InvokeRuleMethod(string.Empty, null);
         }
 
         private void CreateBulkWriter()
         {
-            bulkWriter = new PostgresBulkWriter(
-                        outputQueue, 
-                        new RuleDataRepository(dataLayer, objectFactory), 
-                        "ruleoutput", 
-                        tokenSource);
+            _bulkWriter = new PostgresBulkWriter(
+                        _outputQueue,
+                        new RuleDataRepository(_dataLayer, _objectFactory),
+                        "ruleoutput",
+                        5000,
+                        _tokenSource);
         }
 
         private void CreateUniqueSet()
         {
-            var repository = new RuleDataRepository(dataLayer, objectFactory);
-            var uniqueIds = repository.GetUniqueIds(inputTable, uniqueIdColumnName);
-            dataSliceSet = new DataSliceSet<int>(uniqueIds, 1000);
+            var repository = new RuleDataRepository(_dataLayer, _objectFactory);
+            var uniqueIds = repository.GetUniqueIds(_inputTable, _uniqueIdColumnName);
+            _dataSliceSet = new DataSliceSet<int>(uniqueIds, 1000);
         }
 
         private void CreateBatchManager()
         {
-            batchManager = new BatchManager(dataSliceSet, reader, tokenSource);
+            _batchManager = new BatchManager(_dataSliceSet, _reader, _tokenSource);
         }
 
         private void BuildRulesAssemblyAndMethods()
         {
             var buildAll = new BuildAll();
-            buildAll.Build(_ruleSetting, inputTable);
+            buildAll.Build(_ruleSetting, _inputTable);
         }
 
         private void CreateReader()
         {
-            reader = new Reader(
+            _reader = new Reader(
                         _ruleSetting.RuleModel,
-                        new RuleDataRepository(dataLayer, objectFactory),
-                        inputQueue,
-                        inputTable,
-                        uniqueIdColumnName);
+                        new RuleDataRepository(_dataLayer, _objectFactory),
+                        _inputQueue,
+                        _inputTable,
+                        _uniqueIdColumnName);
         }
 
         private void CreateAssemblyCacher()
         {
-            workflowAssemblyCacher = new WorkflowAssemblyCacher(objectFactory);
+            _workflowAssemblyCacher = new WorkflowAssemblyCacher(_objectFactory);
         }
 
         private void CreateWorkflowWorkshopRunner()
         {
-            ruleInvoker = new RuleInvoker(workflowAssemblyCacher, _ruleSetting, new Random().Next(1, int.MaxValue));
-            workItemProcessor = new WorkItemProcessor(inputQueue, outputQueue, ruleInvoker);
-            workflowWorkshopRunner = new WorkflowWorkshopRunner(workItemProcessor);
+            _ruleInvoker = new RuleInvoker(_workflowAssemblyCacher, _ruleSetting, new Random().Next(1, int.MaxValue));
+            _workItemProcessor = new WorkItemProcessor(_inputQueue, _outputQueue, _ruleInvoker);
+            _workflowWorkshopRunner = new WorkflowWorkshopRunner(_workItemProcessor);
         }
 
         private void StartTasks()
         {
-            batchManagerTask = Task.Run(async() => await batchManager.Run());
-            inputQueueCompleteTask = batchManagerTask.ContinueWith(t => inputQueue.CompleteAdding(), tokenSource.Token);
-            workShopTask = Task.Run(()=> workflowWorkshopRunner.Run(), tokenSource.Token);
+            _batchManagerTask = Task.Run(async ()=> await _batchManager.Run());
+            _inputQueueCompleteTask = _batchManagerTask.ContinueWith(t => _inputQueue.CompleteAdding(), _tokenSource.Token);
+            _workShopTask = Task.Run(() => _workflowWorkshopRunner.Run(), _tokenSource.Token);
 
-            var outputDataCompleteTask = 
-                workShopTask.ContinueWith(t=> outputQueue.CompleteAdding(), tokenSource.Token);
-            var bulkWriterTask = new Task(()=>bulkWriter.Write(), tokenSource.Token);
+            var outputDataCompleteTask =
+                _workShopTask.ContinueWith(t => _outputQueue.CompleteAdding(), _tokenSource.Token);
+            var bulkWriterTask = new Task(() => _bulkWriter.Write(), _tokenSource.Token);
             bulkWriterTask.Start();
 
-            Task.WaitAll([inputQueueCompleteTask, outputDataCompleteTask, bulkWriterTask], tokenSource.Token);
+            Task.WaitAll([_inputQueueCompleteTask, outputDataCompleteTask, bulkWriterTask], _tokenSource.Token);
         }
     }
 }

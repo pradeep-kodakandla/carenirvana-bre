@@ -1,4 +1,5 @@
 ﻿using carenirvana.bre.model;
+using System.Collections.Concurrent;
 using System.Data;
 
 namespace carenirvana.bre.dataaccess
@@ -55,6 +56,6 @@ namespace carenirvana.bre.dataaccess
         /// <returns></returns>
         int ExecuteNonQuery(string query, Dictionary<string, object> parmeterWithValues);
 
-        void BulkInsert(IWorkflowItem workItem, string destTableName);
+        void BulkInsert(ConcurrentQueue<IWorkflowItem> workflowItems, string destTableName);
     }
 }

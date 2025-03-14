@@ -1,5 +1,6 @@
 ﻿using System.Collections.Concurrent;
 using System.Data;
+using System.Reflection;
 using System.Reflection.Emit;
 using carenirvana.bre.utility;
 
@@ -10,38 +11,24 @@ namespace carenirvana.bre.common.ObjectFactory.Impl
     public class ObjectFactory : IObjectFactory
     {
         private readonly ConcurrentDictionary<Type, Lazy<CreateObject>> _objectActivators = new();
-        private readonly Type createObjectDelegateType = typeof(CreateObject);
+        private readonly Type _createObjectDelegateType = typeof(CreateObject);
 
         public CreateObject CreateInstance(Type type)
         {
-            var activator = _objectActivators.GetOrAdd(type, t =>
-            {
-                return new Lazy<CreateObject>(() =>
-                {
-                    var dynamicMethod = new DynamicMethod(
-                        "DM$OBJ_FACTORY_" + t.Name,
-                        typeof(object),
-                        null,
-                        t);
-                    var msil = dynamicMethod.GetILGenerator();
-                    msil.Emit(OpCodes.Newobj, t.GetConstructor(Type.EmptyTypes));
-                    msil.Emit(OpCodes.Ret);
-                    return (CreateObject)dynamicMethod.CreateDelegate(createObjectDelegateType);
-                });
-            });
+            var activator = _objectActivators.GetOrAdd(type, t => new Lazy<CreateObject>(() => CreateActivator(t)));
             return activator.Value;
         }
 
         public object GetInstanceOfAnObject(string assemblyName, string nameSpace, string typeName)
         {
-            return Activator.CreateInstance(
-                    HelperFunctions.GetTypeFromAssembly(assemblyName, nameSpace, typeName));
+            var type = HelperFunctions.GetTypeFromAssembly(assemblyName, nameSpace, typeName);
+            return Activator.CreateInstance(type);
         }
 
         public object GetInstanceOfAnObject(string assemblyName, string nameSpace, string typeName, object[] args)
         {
-            return Activator.CreateInstance(
-                    HelperFunctions.GetTypeFromAssembly(assemblyName, nameSpace, typeName), args);
+            var type = HelperFunctions.GetTypeFromAssembly(assemblyName, nameSpace, typeName);
+            return Activator.CreateInstance(type, args);
         }
 
         public object CallGenericMethodFromAnAssemblyUsingReflection(
@@ -52,20 +39,14 @@ namespace carenirvana.bre.common.ObjectFactory.Impl
             Type typeOfObjectThatIsPassedToGenericMethod)
         {
             var instance = Activator.CreateInstance(assembly, constructorArgs);
-            var assemblyInternal = instance.GetType().Assembly;
-
-            var genericMethod = assemblyInternal.GetType(instance.GetType().FullName)
-                .GetMethod(methodName)
-                .MakeGenericMethod(typeOfObjectThatIsPassedToGenericMethod);
+            var genericMethod = GetGenericMethod(instance, methodName, typeOfObjectThatIsPassedToGenericMethod);
             return genericMethod.Invoke(instance, methodArgs);
         }
 
         public List<T> GetDataFromReader<T>(IDataReader reader)
         {
             var result = new List<T>();
-            var inputObjectType = typeof(T);
-            var attributes = (from attrib in reader.GetSchemaTable().AsEnumerable()
-                              select attrib.Field<string>("ColumnName")).ToList();
+            var attributes = GetColumnNames(reader);
             while (reader.Read())
             {
                 var values = new object[attributes.Count];
@@ -82,6 +63,32 @@ namespace carenirvana.bre.common.ObjectFactory.Impl
         public Type GetType(object type)
         {
             return type.GetType();
+        }
+
+        private CreateObject CreateActivator(Type type)
+        {
+            var dynamicMethod = new DynamicMethod(
+                "DM$OBJ_FACTORY_" + type.Name,
+                typeof(object),
+                null,
+                type);
+            var msil = dynamicMethod.GetILGenerator();
+            msil.Emit(OpCodes.Newobj, type.GetConstructor(Type.EmptyTypes));
+            msil.Emit(OpCodes.Ret);
+            return (CreateObject)dynamicMethod.CreateDelegate(_createObjectDelegateType);
+        }
+
+        private MethodInfo GetGenericMethod(object instance, string methodName, Type genericType)
+        {
+            var type = instance.GetType();
+            var method = type.GetMethod(methodName);
+            return method.MakeGenericMethod(genericType);
+        }
+
+        private List<string> GetColumnNames(IDataReader reader)
+        {
+            return (from attrib in reader.GetSchemaTable().AsEnumerable()
+                    select attrib.Field<string>("ColumnName")).ToList();
         }
 
         private T CreateInstanceWithData<T>(List<string> attributes, object[] values)

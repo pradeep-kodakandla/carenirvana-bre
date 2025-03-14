@@ -1,7 +1,6 @@
 ﻿using System.Collections.Concurrent;
 using System.Reflection;
 using carenirvana.bre.common.ObjectFactory;
-using carenirvana.bre.common.ObjectFactory.Impl;
 using carenirvana.bre.utility;
 
 namespace carenirvana.bre.workflow

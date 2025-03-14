@@ -13,6 +13,6 @@ namespace carenirvana.bre.repository
 
         IList<int> GetUniqueIds(string tableName, string uniqueIdColumnName);
 
-        void BulkInsert(IWorkflowItem workItem, string destTableName);
+        void BulkInsert(ConcurrentQueue<IWorkflowItem> workflowItems, string destTableName);
     }
 }

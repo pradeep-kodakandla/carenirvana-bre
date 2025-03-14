@@ -13,7 +13,7 @@ namespace carenirvana.bre.workflow
         {
             Parallel.ForEach(
                 _inputQueue.GetConsumingPartitioner(),
-                new ParallelOptions { MaxDegreeOfParallelism = 2 },
+                new ParallelOptions { MaxDegreeOfParallelism = 4 },
                 workItem =>
                 {
                     try

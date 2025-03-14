@@ -24,7 +24,7 @@ namespace carenirvana.bre.repository.Impl
 
         public IList<int> GetUniqueIds(string tableName, string uniqueIdColumnName)
         {
-            List<int> result = new List<int>();
+            List<int> result = [];
             var query = $"select {uniqueIdColumnName} from {tableName}";
             using IDataReader reader = dataLayer.ExecuteDataReader(query);
             while (reader.Read())
@@ -37,9 +37,9 @@ namespace carenirvana.bre.repository.Impl
             return result;
         }
 
-        public void BulkInsert(IWorkflowItem workItem, string destTableName)
+        public void BulkInsert(ConcurrentQueue<IWorkflowItem> workflowItems, string destTableName)
         {
-            dataLayer.BulkInsert(workItem, destTableName);
+            dataLayer.BulkInsert(workflowItems, destTableName);
         }
 
         private ConcurrentDictionary<int, IInputObject> GetInputDataInternal(

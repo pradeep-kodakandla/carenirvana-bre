@@ -1,6 +1,8 @@
-﻿using System.Data;
+﻿using System.Collections.Concurrent;
+using System.Data;
 using carenirvana.bre.common;
 using carenirvana.bre.model;
+using carenirvana.bre.model.Impl;
 using Npgsql;
 
 namespace carenirvana.bre.dataaccess.Impl.Postgres
@@ -73,22 +75,41 @@ namespace carenirvana.bre.dataaccess.Impl.Postgres
                         BuildCommandWithParameters(CommandType.Text, query, parmeterWithValues).ExecuteScalar());
         }
 
-        public void BulkInsert(IWorkflowItem workItem, string destTableName)
+        public void BulkInsert(ConcurrentQueue<IWorkflowItem> workflowItems, string destTableName)
         {
             using var conn = Connection();
             using var writer = conn.BeginBinaryImport($"COPY {destTableName} (RunId, UniqueId, RuleId, RuleName, RunDtTm, Result, OutputMessage) FROM STDIN (FORMAT BINARY)");
-            foreach (var output in workItem.Outputs)
+
+            foreach (var workflowItem in workflowItems)
             {
-                writer.StartRow();
-                writer.Write(output.RunId, NpgsqlTypes.NpgsqlDbType.Integer);
-                writer.Write(output.UniqueId, NpgsqlTypes.NpgsqlDbType.Integer);
-                writer.Write(output.RuleId, NpgsqlTypes.NpgsqlDbType.Integer);
-                writer.Write(output.RuleName, NpgsqlTypes.NpgsqlDbType.Varchar);
-                writer.Write(output.RunDtTm, NpgsqlTypes.NpgsqlDbType.Timestamp);
-                writer.Write(output.Result, NpgsqlTypes.NpgsqlDbType.Boolean);
-                writer.Write(output.OutputMessage, NpgsqlTypes.NpgsqlDbType.Varchar);
+                foreach (var output in workflowItem.Outputs)
+                {
+                    writer.WriteRow([
+                        output.RunId,
+                        output.UniqueId,
+                        output.RuleId,
+                        output.RuleName,
+                        output.RunDtTm,
+                        output.Result,
+                        output.OutputMessage
+                    ]);
+                }
             }
             writer.Complete();
+        }
+
+        private object[] GetOutputsAsArray(RuleOutput output)
+        {
+            return
+            [
+                output.RunId,
+                output.UniqueId,
+                output.RuleId,
+                output.RuleName,
+                output.RunDtTm,
+                output.Result,
+                output.OutputMessage
+            ];
         }
 
         private string BuildConnectionString(string serverName, string databaseName, string userName, string password, int port)
