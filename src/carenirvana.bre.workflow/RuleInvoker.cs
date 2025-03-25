@@ -1,7 +1,5 @@
 ﻿using carenirvana.bre.model;
 using carenirvana.bre.model.Impl;
-using carenirvana.bre.utility;
-using System.Reflection;
 
 namespace carenirvana.bre.workflow
 {
@@ -30,8 +28,6 @@ namespace carenirvana.bre.workflow
         {
             try
             {
-                // build parameters for the rule from the work item...
-
                 var value = _workflowAssemblyCacher.InvokeMethod(methodName, BuildParametersForRule(workItem, methodName));
                 BuildOutput(value, workItem, methodName);
             }
@@ -69,14 +65,10 @@ namespace carenirvana.bre.workflow
         {
             var rule = _ruleSetting.RuleNode
                 .SelectMany(node => node.Rules)
-                .FirstOrDefault(r => r.RuleName == methodName);
-
-            if (rule == null)
-            {
-                throw new InvalidOperationException($"Rule '{methodName}' not found in RuleSetting.");
-            }
-
+                .FirstOrDefault(r => r.RuleName == methodName) ?? throw new InvalidOperationException($"Rule '{methodName}' not found in RuleSetting.");
+            
             var parameters = new List<object>();
+
             foreach (var param in rule.Parameters)
             {
                 var parameterName = param.ParameterName;
@@ -99,7 +91,7 @@ namespace carenirvana.bre.workflow
                 }
             }
 
-            return parameters.ToArray();
+            return [.. parameters];
         }
 
         private bool IsParamAFunction(string fieldName)

@@ -3,7 +3,7 @@ using carenirvana.bre;
 
 Console.WriteLine("Hello, World!");
 
-var rEngine = new RuleEngine(File.ReadAllText(@"D:\repos\carenirvana-bre\src\carenirvana.bre.testapp\BREConfigData.json"));
+var rEngine = new RuleEngine(File.ReadAllText(@"D:\repos\carenirvana-bre\src\carenirvana.bre.testapp\BREConfigDataEx.json"));
 rEngine.ExecuteRules("");
 Console.WriteLine($"run completed...");
 Console.ReadLine();

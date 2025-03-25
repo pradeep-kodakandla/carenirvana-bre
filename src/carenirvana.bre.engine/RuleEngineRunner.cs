@@ -5,6 +5,7 @@ using carenirvana.bre.common.DataStructure;
 using carenirvana.bre.common.ObjectFactory;
 using carenirvana.bre.common.ObjectFactory.Impl;
 using carenirvana.bre.dataaccess;
+using carenirvana.bre.dataaccess.Impl.Postgres;
 using carenirvana.bre.model;
 using carenirvana.bre.model.Impl;
 using carenirvana.bre.repository;
@@ -18,15 +19,14 @@ using System.Threading.Tasks;
 
 namespace carenirvana.bre.engine
 {
-    public class RuleEngineRunner
+    public class RuleEngineRunner(string inputTable, string uniqueIdColumnName)
     {
-        private readonly IBlockingQueue<IWorkflowItem> _inputQueue;
-        private readonly IBlockingQueue<IWorkflowItem> _outputQueue;
-        private readonly IObjectFactory _objectFactory;
-        private readonly IAbstractDataLayer _dataLayer;
-        private readonly string _inputTable;
-        private readonly string _uniqueIdColumnName;
-        private readonly CancellationTokenSource _tokenSource;
+        private readonly IBlockingQueue<IWorkflowItem> _inputQueue = new BlockingQueue<IWorkflowItem>();
+        private readonly IBlockingQueue<IWorkflowItem> _outputQueue = new BlockingQueue<IWorkflowItem>();
+        private readonly IObjectFactory _objectFactory = new ObjectFactory();
+        private readonly string _inputTable = inputTable ?? throw new ArgumentNullException(nameof(inputTable));
+        private readonly string _uniqueIdColumnName = uniqueIdColumnName ?? throw new ArgumentNullException(nameof(uniqueIdColumnName));
+        private readonly CancellationTokenSource _tokenSource = new CancellationTokenSource();
         private RuleSetting _ruleSetting;
         private IReader _reader;
         private IBatchManager _batchManager;
@@ -40,17 +40,6 @@ namespace carenirvana.bre.engine
         private Task _batchManagerTask;
         private Task _inputQueueCompleteTask;
         private Task _workShopTask;
-
-        public RuleEngineRunner(IAbstractDataLayer dataLayer, string inputTable, string uniqueIdColumnName)
-        {
-            _inputQueue = new BlockingQueue<IWorkflowItem>();
-            _outputQueue = new BlockingQueue<IWorkflowItem>();
-            _objectFactory = new ObjectFactory();
-            _dataLayer = dataLayer ?? throw new ArgumentNullException(nameof(dataLayer));
-            _inputTable = inputTable ?? throw new ArgumentNullException(nameof(inputTable));
-            _uniqueIdColumnName = uniqueIdColumnName ?? throw new ArgumentNullException(nameof(uniqueIdColumnName));
-            _tokenSource = new CancellationTokenSource();
-        }
 
         public void Init(string breJson)
         {
@@ -78,19 +67,26 @@ namespace carenirvana.bre.engine
 
         private void CreateBulkWriter()
         {
+            var outputDataLayer = new PostgresDataLayer(
+                    ConfigReader.OutputServer,
+                    ConfigReader.OutputServerDatabase,
+                    ConfigReader.OutputServerUserName,
+                    ConfigReader.OutputServerPassword,
+                    int.Parse(ConfigReader.OutputServerPortNum));
+
             _bulkWriter = new PostgresBulkWriter(
                         _outputQueue,
-                        new RuleDataRepository(_dataLayer, _objectFactory),
+                        new RuleDataRepository(outputDataLayer, _objectFactory),
                         "ruleoutput",
-                        5000,
+                        int.Parse(ConfigReader.OutputBatchSize),
                         _tokenSource);
         }
 
         private void CreateUniqueSet()
         {
-            var repository = new RuleDataRepository(_dataLayer, _objectFactory);
+            var repository = new RuleDataRepository(GetInputDataLayer(), _objectFactory);
             var uniqueIds = repository.GetUniqueIds(_inputTable, _uniqueIdColumnName);
-            _dataSliceSet = new DataSliceSet<int>(uniqueIds, 1000);
+            _dataSliceSet = new DataSliceSet<int>(uniqueIds, int.Parse(ConfigReader.OutputBatchSize));
         }
 
         private void CreateBatchManager()
@@ -108,10 +104,20 @@ namespace carenirvana.bre.engine
         {
             _reader = new Reader(
                         _ruleSetting.RuleModel,
-                        new RuleDataRepository(_dataLayer, _objectFactory),
+                        new RuleDataRepository(GetInputDataLayer(), _objectFactory),
                         _inputQueue,
                         _inputTable,
                         _uniqueIdColumnName);
+        }
+
+        private IAbstractDataLayer GetInputDataLayer()
+        {
+            return new PostgresDataLayer(
+                    ConfigReader.InputServer,
+                    ConfigReader.InputServerDatabase,
+                    ConfigReader.InputServerUserName,
+                    ConfigReader.InputServerPassword,
+                    int.Parse(ConfigReader.InputServerPortNum));
         }
 
         private void CreateAssemblyCacher()

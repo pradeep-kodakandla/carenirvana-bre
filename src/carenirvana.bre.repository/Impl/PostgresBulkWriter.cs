@@ -17,6 +17,7 @@ namespace carenirvana.bre.repository.Impl
         private readonly int _batchCount = batchCount;
         private readonly string _destTableName = destTableName ?? throw new ArgumentNullException(nameof(destTableName));
         private readonly CancellationTokenSource _cancelTokenSource = cancelTokenSource ?? throw new ArgumentNullException(nameof(cancelTokenSource));
+        private readonly object _lock = new();
 
         public void Write()
         {
@@ -25,24 +26,24 @@ namespace carenirvana.bre.repository.Impl
 
         private void PrepareOutputDataToWrite()
         {
-            Parallel.ForEach(
-                _outputQueue.GetConsumingPartitioner(),
-                new ParallelOptions { MaxDegreeOfParallelism = 5 },
-                workItem =>
+            foreach (var workItem in _outputQueue.GetConsumingEnumerable())
+            {
+                try
                 {
-                    try
+                    EnqueueWorkItem(workItem);
+                    if (IsBatchReady())
                     {
-                        EnqueueWorkItem(workItem);
-                        if (IsBatchReady())
+                        lock (_lock)
                         {
                             BulkInsertBatch();
                         }
                     }
-                    catch (Exception ex)
-                    {
-                        HandleProcessingError(workItem, ex);
-                    }
-                });
+                }
+                catch (Exception ex)
+                {
+                    HandleProcessingError(workItem, ex);
+                }
+            }
 
             // Write the last batch
             BulkInsertBatch();
@@ -55,12 +56,12 @@ namespace carenirvana.bre.repository.Impl
 
         private bool IsBatchReady()
         {
-            return _bcpOutputItems.Count >= _batchCount;
+            return _bcpOutputItems.Count == _batchCount;
         }
 
         private void BulkInsertBatch()
         {
-            if (_bcpOutputItems.Count > 0)
+            if (!_bcpOutputItems.IsEmpty)
             {
                 _ruleDataRepository.BulkInsert(_bcpOutputItems, _destTableName);
                 ClearBatch();

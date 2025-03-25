@@ -44,8 +44,7 @@ namespace carenirvana.bre
 
         private void Init()
         {
-            IAbstractDataLayer dataLayer = new PostgresDataLayer("icare.postgres.database.azure.com", "icare4h", "postgres", "icare@4H", 5432);
-            _engineRunner = new RuleEngineRunner(dataLayer, "ruleinput", "uniqueid");
+            _engineRunner = new RuleEngineRunner("ruleinput", "uniqueid");
             _engineRunner.Init(breJson);
         }
     }

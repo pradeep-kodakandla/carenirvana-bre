@@ -27,30 +27,27 @@ namespace carenirvana.bre.workflow
                             ConstantsUtility.RunTimeRuleExecutorTypeName,
                             "RuleExecutor");
 
-            ruleExecutorInstance = _objectFactory.CreateInstance(
-                                HelperFunctions.GetTypeFromAssembly(
-                                ConstantsUtility.RunTimeNameSpace,
-                                ConstantsUtility.RunTimeRuleExecutorTypeName,
-                                "RuleExecutor"))();
+            ruleExecutorInstance = _objectFactory.CreateInstance(ruleExecutorType)();
+            CacheMethods();
+        }
 
+        private void CacheMethods()
+        {
             var excludedMethods = new[] { "ToString", "Equals", "GetHashCode", "GetType" };
-            ruleExecutorType.GetMethods()
-                .Where(m => !excludedMethods.Contains(m.Name))
-                .ToList()
-                .ForEach(x => GetMethod(x.Name));
+            foreach (var method in ruleExecutorType.GetMethods().Where(m => !excludedMethods.Contains(m.Name)))
+            {
+                _methodCache[method.Name] = method;
+            }
         }
 
         private MethodInfo GetMethod(string methodName)
         {
-            var key = $"{methodName}";
-            if (_methodCache.TryGetValue(key, out var method))
+            if (_methodCache.TryGetValue(methodName, out var method))
             {
                 return method;
             }
 
-            method = ruleExecutorType?.GetMethod(methodName) ?? throw new InvalidOperationException($"Method '{methodName}' not found.");
-            _methodCache[key] = method;
-            return method;
+            throw new InvalidOperationException($"Method '{methodName}' not found.");
         }
 
         public object? InvokeMethod(string methodName, params object[] parameters)
