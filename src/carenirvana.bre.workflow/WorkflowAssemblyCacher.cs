@@ -25,7 +25,7 @@ namespace carenirvana.bre.workflow
             ruleExecutorType = HelperFunctions.GetTypeFromAssembly(
                             ConstantsUtility.RunTimeNameSpace,
                             ConstantsUtility.RunTimeRuleExecutorTypeName,
-                            "RuleExecutor");
+                            ConstantsUtility.RuleExecutorTypeName);
 
             ruleExecutorInstance = _objectFactory.CreateInstance(ruleExecutorType)();
             CacheMethods();
@@ -33,8 +33,7 @@ namespace carenirvana.bre.workflow
 
         private void CacheMethods()
         {
-            var excludedMethods = new[] { "ToString", "Equals", "GetHashCode", "GetType" };
-            foreach (var method in ruleExecutorType.GetMethods().Where(m => !excludedMethods.Contains(m.Name)))
+            foreach (var method in ruleExecutorType.GetMethods().Where(m => !ConstantsUtility.ExcludeFromMethodList.Contains(m.Name)))
             {
                 _methodCache[method.Name] = method;
             }
@@ -54,6 +53,17 @@ namespace carenirvana.bre.workflow
         {
             MethodInfo method = GetMethod(methodName);
             return method.Invoke(ruleExecutorInstance, parameters);
+        }
+
+        public object? InvokeMethodWithTypeConversion(string methodName, params object[] parameters)
+        {
+            MethodInfo method = GetMethod(methodName);
+
+            var convertedParameters = method.GetParameters()
+                .Select((param, index) => HelperFunctions.ConvertValue(parameters[index], param.ParameterType))
+                .ToArray();
+
+            return method.Invoke(ruleExecutorInstance, convertedParameters);
         }
     }
 }

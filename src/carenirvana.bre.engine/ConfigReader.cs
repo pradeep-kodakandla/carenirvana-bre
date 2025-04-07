@@ -1,14 +1,23 @@
-﻿using carenirvana.bre.utility;
-using System;
-using System.Configuration;
+﻿using System.Configuration;
+using carenirvana.bre.utility;
+using Microsoft.Extensions.Configuration;
 
 namespace carenirvana.bre.engine
 {
     public static class ConfigReader
     {
-        public static string GetAppSetting(string key)
+        public static IConfigurationRoot Configuration { get; set; }
+
+        internal static string GetAppSetting(string key)
         {
-            return ConfigurationManager.AppSettings[key];
+            // First, try to get the value from appsettings.json
+            string value = Configuration.GetSection("AppSettings")[key];
+            if (string.IsNullOrEmpty(value))
+            {
+                // If not found, try to get the value from App.config
+                value = ConfigurationManager.AppSettings[key];
+            }
+            return value;
         }
 
         public static string InputServer => GetAppSetting(ConstantsUtility.InputServer);

@@ -34,7 +34,7 @@ namespace carenirvana.bre.repository.Impl
 
         private void QueueItems(IRange<int> range)
         {
-            Parallel.ForEach(range.Values, new ParallelOptions { MaxDegreeOfParallelism = 2 }, item =>
+            Parallel.ForEach(range.Values, new ParallelOptions { MaxDegreeOfParallelism = 4 }, item =>
             {
                 workItems.Enqueue(GetWorkItem(item));
             });
@@ -52,6 +52,7 @@ namespace carenirvana.bre.repository.Impl
 
         private void PrepareInputData(IRange<int> range)
         {
+            Console.WriteLine($"Reading batch... from {range.MinValue} to {range.MaxValue}");
             allInputs = ReadDataFromRepository(
                 ConstantsUtility.RunTimeNameSpace,
                 ConstantsUtility.RunTimeInputDataTypeName,

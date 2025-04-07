@@ -1,9 +1,11 @@
 ﻿using System.Collections.Concurrent;
 using System.Data;
+using System.Text;
 using carenirvana.bre.common;
 using carenirvana.bre.model;
 using carenirvana.bre.model.Impl;
 using Npgsql;
+using Npgsql.Internal;
 
 namespace carenirvana.bre.dataaccess.Impl.Postgres
 {
@@ -41,61 +43,83 @@ namespace carenirvana.bre.dataaccess.Impl.Postgres
 
         public int ExecuteNonQuery(string query)
         {
-            return new ComputationRetryer(retryCount, query).Run<Exception, int>(() =>
-                        BuildCommandWithParameters(CommandType.Text, query, []).ExecuteNonQuery());
+            using var command = BuildCommandWithParameters(CommandType.Text, query, []);
+            var returnValue = new ComputationRetryer(retryCount, query).Run<Exception, int>(() =>
+                                        command.ExecuteNonQuery());
+            command.Connection?.Close();
+            return returnValue;
         }
 
         public int ExecuteNonQuery(string query, Dictionary<string, object> parmeterWithValues)
         {
-            return new ComputationRetryer(retryCount, query).Run<Exception, int>(() =>
-                        BuildCommandWithParameters(CommandType.Text, query, parmeterWithValues).ExecuteNonQuery());
+            using var command = BuildCommandWithParameters(CommandType.Text, query, parmeterWithValues);
+            var returnValue = new ComputationRetryer(retryCount, query).Run<Exception, int>(() =>
+                                    command.ExecuteNonQuery());
+            command.Connection?.Close();
+            return returnValue;
         }
 
         public IDataReader ExecuteDataReader(string query)
         {
-            return new ComputationRetryer(retryCount, query).Run<Exception, IDataReader>(() =>
-                        BuildCommandWithParameters(CommandType.Text, query, []).ExecuteReader());
+            var command = BuildCommandWithParameters(CommandType.Text, query, []);
+            var returnValue = new ComputationRetryer(retryCount, query).Run<Exception, IDataReader>(() =>
+                                    command.ExecuteReader(CommandBehavior.CloseConnection));
+            return returnValue;
         }
 
         public IDataReader ExecuteDataReader(string query, Dictionary<string, object> parmeterWithValues)
         {
-            return new ComputationRetryer(retryCount, query).Run<Exception, IDataReader>(() =>
-                        BuildCommandWithParameters(CommandType.Text, query, parmeterWithValues).ExecuteReader());
+            var command = BuildCommandWithParameters(CommandType.Text, query, parmeterWithValues);
+            var returnValue = new ComputationRetryer(retryCount, query).Run<Exception, IDataReader>(() =>
+                                    command.ExecuteReader(CommandBehavior.CloseConnection));
+            return returnValue;
         }
 
         public object ExecuteScalar(string query)
         {
-            return new ComputationRetryer(retryCount, query).Run<Exception, object>(() =>
-                        BuildCommandWithParameters(CommandType.Text, query, []).ExecuteScalar());
+            using var command = BuildCommandWithParameters(CommandType.Text, query, []);
+            var returnValue = new ComputationRetryer(retryCount, query).Run<Exception, object>(() =>
+                                        command.ExecuteScalar());
+            command.Connection?.Close();
+            return returnValue;
         }
 
         public object ExecuteScalar(string query, Dictionary<string, object> parmeterWithValues)
         {
-            return new ComputationRetryer(retryCount, query).Run<Exception, object>(() =>
-                        BuildCommandWithParameters(CommandType.Text, query, parmeterWithValues).ExecuteScalar());
+            using var command = BuildCommandWithParameters(CommandType.Text, query, parmeterWithValues);
+            var returnValue = new ComputationRetryer(retryCount, query).Run<Exception, object>(() =>
+                                            command.ExecuteScalar());
+            command.Connection?.Close();
+            return returnValue;
         }
 
         public void BulkInsert(ConcurrentQueue<IWorkflowItem> workflowItems, string destTableName)
         {
             using var conn = Connection();
+
+
             using var writer = conn.BeginBinaryImport($"COPY {destTableName} (RunId, UniqueId, RuleId, RuleName, RunDtTm, Result, OutputMessage) FROM STDIN (FORMAT BINARY)");
 
-            foreach (var workflowItem in workflowItems)
+            while (workflowItems.TryDequeue(out var workflowItem))
             {
                 foreach (var output in workflowItem.Outputs)
                 {
-                    writer.WriteRow([
-                        output.RunId,
-                        output.UniqueId,
-                        output.RuleId,
-                        output.RuleName,
-                        output.RunDtTm,
-                        output.Result,
-                        output.OutputMessage
-                    ]);
+                    writer.WriteRow(GetOutputsAsArray(output));
                 }
             }
             writer.Complete();
+        }
+
+        private string GetOutputsAsCsv(IWorkflowItem workflowItem)
+        {
+            var csvBuilder = new StringBuilder();
+            foreach (var output in workflowItem.Outputs)
+            {
+                var outputArray = GetOutputsAsArray(output);
+                var quotedValues = outputArray.Select(value => $"'{value}'");
+                csvBuilder.AppendLine(string.Join(",", quotedValues));
+            }
+            return csvBuilder.ToString();
         }
 
         private object[] GetOutputsAsArray(RuleOutput output)

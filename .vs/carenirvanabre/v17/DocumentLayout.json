@@ -3,8 +3,32 @@
   "WorkspaceRootPath": "D:\\repos\\carenirvana-bre\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{689690B2-E412-4833-8B50-3EBE291DD77D}|src\\carenirvana.bre.engine\\carenirvana.bre.engine.csproj|d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.engine\\impl\\rulefunctions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{689690B2-E412-4833-8B50-3EBE291DD77D}|src\\carenirvana.bre.engine\\carenirvana.bre.engine.csproj|solutionrelative:src\\carenirvana.bre.engine\\impl\\rulefunctions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B237B01D-6C33-49C2-969E-B9E0B2FA828C}|src\\carenirvana.bre.ruleapi\\carenirvana.bre.ruleapi.csproj|d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.ruleapi\\controllers\\rulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B237B01D-6C33-49C2-969E-B9E0B2FA828C}|src\\carenirvana.bre.ruleapi\\carenirvana.bre.ruleapi.csproj|solutionrelative:src\\carenirvana.bre.ruleapi\\controllers\\rulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{689690B2-E412-4833-8B50-3EBE291DD77D}|src\\carenirvana.bre.engine\\carenirvana.bre.engine.csproj|d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.engine\\impl\\ruleengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{689690B2-E412-4833-8B50-3EBE291DD77D}|src\\carenirvana.bre.engine\\carenirvana.bre.engine.csproj|solutionrelative:src\\carenirvana.bre.engine\\impl\\ruleengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{689690B2-E412-4833-8B50-3EBE291DD77D}|src\\carenirvana.bre.engine\\carenirvana.bre.engine.csproj|d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.engine\\ruleenginerunner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{689690B2-E412-4833-8B50-3EBE291DD77D}|src\\carenirvana.bre.engine\\carenirvana.bre.engine.csproj|solutionrelative:src\\carenirvana.bre.engine\\ruleenginerunner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99E93328-4EBE-4113-8B82-22FEBE92B996}|src\\carenirvana.bre.workflow\\carenirvana.bre.workflow.csproj|d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\ruleinvoker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99E93328-4EBE-4113-8B82-22FEBE92B996}|src\\carenirvana.bre.workflow\\carenirvana.bre.workflow.csproj|solutionrelative:src\\carenirvana.bre.workflow\\ruleinvoker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B237B01D-6C33-49C2-969E-B9E0B2FA828C}|src\\carenirvana.bre.ruleapi\\carenirvana.bre.ruleapi.csproj|d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.ruleapi\\breconfigdataex.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B237B01D-6C33-49C2-969E-B9E0B2FA828C}|src\\carenirvana.bre.ruleapi\\carenirvana.bre.ruleapi.csproj|solutionrelative:src\\carenirvana.bre.ruleapi\\breconfigdataex.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{689690B2-E412-4833-8B50-3EBE291DD77D}|src\\carenirvana.bre.engine\\carenirvana.bre.engine.csproj|d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.engine\\iruleengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{689690B2-E412-4833-8B50-3EBE291DD77D}|src\\carenirvana.bre.engine\\carenirvana.bre.engine.csproj|solutionrelative:src\\carenirvana.bre.engine\\iruleengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99E93328-4EBE-4113-8B82-22FEBE92B996}|src\\carenirvana.bre.workflow\\carenirvana.bre.workflow.csproj|d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\workitemprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99E93328-4EBE-4113-8B82-22FEBE92B996}|src\\carenirvana.bre.workflow\\carenirvana.bre.workflow.csproj|solutionrelative:src\\carenirvana.bre.workflow\\workitemprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -25,16 +49,98 @@
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BREConfigDataEx.json",
+              "DocumentMoniker": "d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.ruleapi\\BREConfigDataEx.json",
+              "RelativeDocumentMoniker": "src\\carenirvana.bre.ruleapi\\BREConfigDataEx.json",
+              "ToolTip": "d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.ruleapi\\BREConfigDataEx.json",
+              "RelativeToolTip": "src\\carenirvana.bre.ruleapi\\BREConfigDataEx.json",
+              "ViewState": "AgIAAAECAAAAAAAAAAAAAAoCAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-04-06T11:08:52.928Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IRuleEngine.cs",
+              "DocumentMoniker": "d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.engine\\IRuleEngine.cs",
+              "RelativeDocumentMoniker": "src\\carenirvana.bre.engine\\IRuleEngine.cs",
+              "ToolTip": "d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.engine\\IRuleEngine.cs",
+              "RelativeToolTip": "src\\carenirvana.bre.engine\\IRuleEngine.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-06T11:08:06.145Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RuleEngineRunner.cs",
+              "DocumentMoniker": "d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.engine\\RuleEngineRunner.cs",
+              "RelativeDocumentMoniker": "src\\carenirvana.bre.engine\\RuleEngineRunner.cs",
+              "ToolTip": "d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.engine\\RuleEngineRunner.cs",
+              "RelativeToolTip": "src\\carenirvana.bre.engine\\RuleEngineRunner.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAMwD0AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-06T11:07:27.3Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RuleEngine.cs",
+              "DocumentMoniker": "d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.engine\\Impl\\RuleEngine.cs",
+              "RelativeDocumentMoniker": "src\\carenirvana.bre.engine\\Impl\\RuleEngine.cs",
+              "ToolTip": "d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.engine\\Impl\\RuleEngine.cs",
+              "RelativeToolTip": "src\\carenirvana.bre.engine\\Impl\\RuleEngine.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAQwB0AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-06T11:07:04.694Z",
+              "EditorCaption": ""
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "RuleFunctions.cs",
-              "DocumentMoniker": "d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.engine\\Impl\\RuleFunctions.cs",
-              "RelativeDocumentMoniker": "src\\carenirvana.bre.engine\\Impl\\RuleFunctions.cs",
-              "ToolTip": "d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.engine\\Impl\\RuleFunctions.cs",
-              "RelativeToolTip": "src\\carenirvana.bre.engine\\Impl\\RuleFunctions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAANAAAAAAAAAA==",
+              "Title": "RuleController.cs",
+              "DocumentMoniker": "d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.ruleapi\\Controllers\\RuleController.cs",
+              "RelativeDocumentMoniker": "src\\carenirvana.bre.ruleapi\\Controllers\\RuleController.cs",
+              "ToolTip": "d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.ruleapi\\Controllers\\RuleController.cs",
+              "RelativeToolTip": "src\\carenirvana.bre.ruleapi\\Controllers\\RuleController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-14T07:44:00.377Z",
+              "WhenOpened": "2025-04-06T11:07:02.096Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "WorkItemProcessor.cs",
+              "DocumentMoniker": "d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\WorkItemProcessor.cs",
+              "RelativeDocumentMoniker": "src\\carenirvana.bre.workflow\\WorkItemProcessor.cs",
+              "ToolTip": "d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\WorkItemProcessor.cs",
+              "RelativeToolTip": "src\\carenirvana.bre.workflow\\WorkItemProcessor.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAowBcAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-06T11:05:26.392Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RuleInvoker.cs",
+              "DocumentMoniker": "d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\RuleInvoker.cs",
+              "RelativeDocumentMoniker": "src\\carenirvana.bre.workflow\\RuleInvoker.cs",
+              "ToolTip": "d:\\repos\\carenirvana-bre\\src\\carenirvana.bre.workflow\\RuleInvoker.cs",
+              "RelativeToolTip": "src\\carenirvana.bre.workflow\\RuleInvoker.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAADwv0IAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-06T11:05:01.081Z",
               "EditorCaption": ""
             }
           ]

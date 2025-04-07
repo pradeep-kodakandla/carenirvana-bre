@@ -87,8 +87,8 @@ namespace carenirvana.bre.common.ObjectFactory.Impl
 
         private List<string> GetColumnNames(IDataReader reader)
         {
-            return (from attrib in reader.GetSchemaTable().AsEnumerable()
-                    select attrib.Field<string>("ColumnName")).ToList();
+            return [.. (from attrib in reader.GetSchemaTable().AsEnumerable()
+                    select attrib.Field<string>("ColumnName"))];
         }
 
         private T CreateInstanceWithData<T>(List<string> attributes, object[] values)

@@ -3,7 +3,10 @@ using carenirvana.bre.model;
 
 namespace carenirvana.bre.workflow
 {
-    public class WorkItemProcessor(IBlockingQueue<IWorkflowItem> inputQueue, IBlockingQueue<IWorkflowItem> outputQueue, RuleInvoker ruleInvoker)
+    public class WorkItemProcessor(
+                IBlockingQueue<IWorkflowItem> inputQueue, 
+                IBlockingQueue<IWorkflowItem> outputQueue, 
+                RuleInvoker ruleInvoker)
     {
         private readonly IBlockingQueue<IWorkflowItem> _inputQueue = inputQueue ?? throw new ArgumentNullException(nameof(inputQueue));
         private readonly IBlockingQueue<IWorkflowItem> _outputQueue = outputQueue ?? throw new ArgumentNullException(nameof(outputQueue));
@@ -18,7 +21,7 @@ namespace carenirvana.bre.workflow
                 {
                     try
                     {
-                        _ruleInvoker.InvokeRuleMethods(workItem);
+                        _ruleInvoker.InvokeRuleMethod(workItem);
                         _outputQueue.Enqueue(workItem);
                     }
                     catch (Exception ex)

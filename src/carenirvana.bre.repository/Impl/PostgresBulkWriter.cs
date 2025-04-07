@@ -60,9 +60,10 @@ namespace carenirvana.bre.repository.Impl
         }
 
         private void BulkInsertBatch()
-        {
+        {   
             if (!_bcpOutputItems.IsEmpty)
             {
+                Console.WriteLine($"Writing batch count of ... {_batchCount}");
                 _ruleDataRepository.BulkInsert(_bcpOutputItems, _destTableName);
                 ClearBatch();
             }

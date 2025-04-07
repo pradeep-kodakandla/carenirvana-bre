@@ -12,10 +12,6 @@ using carenirvana.bre.repository;
 using carenirvana.bre.repository.Impl;
 using carenirvana.bre.workflow;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Concurrent;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace carenirvana.bre.engine
 {
@@ -26,7 +22,7 @@ namespace carenirvana.bre.engine
         private readonly IObjectFactory _objectFactory = new ObjectFactory();
         private readonly string _inputTable = inputTable ?? throw new ArgumentNullException(nameof(inputTable));
         private readonly string _uniqueIdColumnName = uniqueIdColumnName ?? throw new ArgumentNullException(nameof(uniqueIdColumnName));
-        private readonly CancellationTokenSource _tokenSource = new CancellationTokenSource();
+        private readonly CancellationTokenSource _tokenSource = new();
         private RuleSetting _ruleSetting;
         private IReader _reader;
         private IBatchManager _batchManager;
@@ -60,9 +56,9 @@ namespace carenirvana.bre.engine
             StartTasks();
         }
 
-        public void RunARule()
+        public RuleOutput RunARule(string ruleName, object[] inputs)
         {
-            _ruleInvoker.InvokeRuleMethod(string.Empty, null);
+            return _ruleInvoker.InvokeRuleMethod(ruleName, inputs);
         }
 
         private void CreateBulkWriter()
@@ -123,11 +119,11 @@ namespace carenirvana.bre.engine
         private void CreateAssemblyCacher()
         {
             _workflowAssemblyCacher = new WorkflowAssemblyCacher(_objectFactory);
+            _ruleInvoker = new RuleInvoker(_workflowAssemblyCacher, _ruleSetting, new Random().Next(1, int.MaxValue));
         }
 
         private void CreateWorkflowWorkshopRunner()
         {
-            _ruleInvoker = new RuleInvoker(_workflowAssemblyCacher, _ruleSetting, new Random().Next(1, int.MaxValue));
             _workItemProcessor = new WorkItemProcessor(_inputQueue, _outputQueue, _ruleInvoker);
             _workflowWorkshopRunner = new WorkflowWorkshopRunner(_workItemProcessor);
         }

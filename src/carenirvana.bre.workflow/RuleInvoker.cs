@@ -1,5 +1,8 @@
 ﻿using carenirvana.bre.model;
 using carenirvana.bre.model.Impl;
+using carenirvana.bre.utility;
+using Newtonsoft.Json.Linq;
+using System.Reflection;
 
 namespace carenirvana.bre.workflow
 {
@@ -9,7 +12,7 @@ namespace carenirvana.bre.workflow
         private readonly RuleSetting _ruleSetting  = ruleSetting;
         private readonly int runId = runId;
 
-        public void InvokeRuleMethods(IWorkflowItem workItem)
+        public void InvokeRuleMethod(IWorkflowItem workItem)
         {
             foreach (var method in _workflowAssemblyCacher.Methods)
             {
@@ -24,17 +27,43 @@ namespace carenirvana.bre.workflow
             }
         }
 
-        public void InvokeRuleMethod(string methodName, IWorkflowItem workItem)
+        public object InvokeRuleMethod(string methodName, IWorkflowItem workItem)
         {
             try
             {
                 var value = _workflowAssemblyCacher.InvokeMethod(methodName, BuildParametersForRule(workItem, methodName));
                 BuildOutput(value, workItem, methodName);
+                return value;
             }
             catch (Exception ex)
             {
                 HandleMethodInvocationError(workItem, methodName, ex);
             }
+            return false;
+        }
+
+        public RuleOutput InvokeRuleMethod(string methodName, object[] parameters)
+        {
+            try
+            {
+                var output = _workflowAssemblyCacher.InvokeMethodWithTypeConversion(methodName, parameters);
+                var ruleOutput = new RuleOutput
+                {
+                    RunId = runId,
+                    UniqueId = 0,
+                    Result = bool.Parse(output.ToString()),
+                    RunDtTm = DateTime.Now.Date,
+                    RuleId = int.Parse(GetRuleId(methodName)), // need to find the rule id...
+                    RuleName = methodName,
+                    OutputMessage = ""
+                };
+                return ruleOutput;
+            }
+            catch (Exception ex)
+            {
+                HandleMethodInvocationError(methodName, ex);
+            }
+            return null;
         }
 
         private void BuildOutput(object value, IWorkflowItem workItem, string methodName)
@@ -50,15 +79,18 @@ namespace carenirvana.bre.workflow
                 OutputMessage = ""
             };
             workItem.AddOutput(ruleOutput);
-
-            Console.WriteLine($"RuleOutput: UniqueId={ruleOutput.UniqueId}, Result={ruleOutput.Result}, RuleId={ruleOutput.RuleId}, RuleName={ruleOutput.RuleName}, OutputMessage={ruleOutput.OutputMessage}");
-
         }
 
         private void HandleMethodInvocationError(IWorkflowItem workItem, string methodName, Exception ex)
         {
             // Log or handle the error as needed
             Console.WriteLine($"Error invoking method {methodName} for work item {workItem.Id}: {ex.Message}");
+        }
+
+        private void HandleMethodInvocationError(string methodName, Exception ex)
+        {
+            // Log or handle the error as needed
+            Console.WriteLine($"Error invoking method {methodName}: {ex.Message}");
         }
 
         private object[] BuildParametersForRule(IWorkflowItem workItem, string methodName)
@@ -105,8 +137,6 @@ namespace carenirvana.bre.workflow
                 .SelectMany(node => node.Rules)
                 .FirstOrDefault(r => r.RuleName == ruleName).RuleId;
         }
-
-
     }
 }
 

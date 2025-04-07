@@ -30,6 +30,32 @@ namespace carenirvana.bre.utility
             }
         }
 
+        public static object ConvertValue(object value, Type type)
+        {
+            if (value == null) return null;
+            var valueToString = value.ToString();
+            if (type.Equals(typeof(int)))
+            {
+                return int.Parse(valueToString);
+            }
+            else if (type.Equals(typeof(bool)))
+            {
+                return bool.Parse(valueToString);
+            }
+            else if (type.Equals(typeof(double)))
+            {
+                return double.Parse(valueToString);
+            }
+            else if (type.Equals(typeof(DateTime)))
+            {
+                return DateTime.Parse(valueToString);
+            }
+            else
+            {
+                return valueToString;
+            }
+        }
+
         public static Type GetTypeFromString(string type)
         {
             if (type == "int")

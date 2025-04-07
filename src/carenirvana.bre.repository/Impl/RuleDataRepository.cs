@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Concurrent;
+﻿using System.Collections.Concurrent;
 using System.Data;
 using carenirvana.bre.common.ObjectFactory;
 using carenirvana.bre.dataaccess;
@@ -34,6 +33,7 @@ namespace carenirvana.bre.repository.Impl
                     result.Add(reader.GetInt32(0));
                 }
             }
+            reader.Close();
             return result;
         }
 

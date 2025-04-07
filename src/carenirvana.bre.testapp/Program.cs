@@ -3,9 +3,16 @@ using carenirvana.bre;
 
 Console.WriteLine("Hello, World!");
 
+var startTime = DateTime.Now;
+Console.WriteLine($"start time: {startTime}");
 var rEngine = new RuleEngine(File.ReadAllText(@"D:\repos\carenirvana-bre\src\carenirvana.bre.testapp\BREConfigDataEx.json"));
-rEngine.ExecuteRules("");
+// rEngine.ExecuteRules("");
+var output = rEngine.ExecuteRule("CouldBeDiabetic", [null, DateTime.Parse("April-22-1979"), 110]);
 Console.WriteLine($"run completed...");
+var endTime = DateTime.Now;
+Console.WriteLine($"end time: {endTime}");
+Console.WriteLine($"Time taken to process : {new TimeSpan(DateTime.Now.Ticks - startTime.Ticks)}");
+
 Console.ReadLine();
 
 // 1 mil (input table)

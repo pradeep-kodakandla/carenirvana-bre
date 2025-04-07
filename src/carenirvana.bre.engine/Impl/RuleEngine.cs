@@ -1,7 +1,6 @@
-﻿using carenirvana.bre.dataaccess;
-using carenirvana.bre.dataaccess.Impl.Postgres;
-using carenirvana.bre.engine;
+﻿using carenirvana.bre.engine;
 using carenirvana.bre.engine.Interfaces;
+using carenirvana.bre.model.Impl;
 
 namespace carenirvana.bre
 {
@@ -25,8 +24,9 @@ namespace carenirvana.bre
             }
         }
 
-        public void ExecuteRule(string ruleName, params object[] inputs)
+        public RuleOutput ExecuteRule(string ruleName, params object[] inputs)
         {
+            return _engineRunner.RunARule(ruleName, inputs);
         }
 
         public void ExecuteRuleAsync(string ruleName, params object[] inputs)
@@ -38,8 +38,9 @@ namespace carenirvana.bre
             _engineRunner.Run();
         }
 
-        public void ExecuteRulesAsync(string ruleSet)
+        public async void ExecuteRulesAsync(string ruleSet)
         {
+            _engineRunner.Run();
         }
 
         private void Init()
