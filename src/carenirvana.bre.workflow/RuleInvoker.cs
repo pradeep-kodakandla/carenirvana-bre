@@ -9,7 +9,7 @@ namespace carenirvana.bre.workflow
     public class RuleInvoker(WorkflowAssemblyCacher workflowAssemblyCacher, RuleSetting ruleSetting, int runId)
     {
         private readonly WorkflowAssemblyCacher _workflowAssemblyCacher = workflowAssemblyCacher ?? throw new ArgumentNullException(nameof(workflowAssemblyCacher));
-        private readonly RuleSetting _ruleSetting  = ruleSetting;
+        private readonly RuleSetting _ruleSetting = ruleSetting;
         private readonly int runId = runId;
 
         public void InvokeRuleMethod(IWorkflowItem workItem)
@@ -46,16 +46,20 @@ namespace carenirvana.bre.workflow
         {
             try
             {
-                var output = _workflowAssemblyCacher.InvokeMethodWithTypeConversion(methodName, parameters);
+                var output = bool.Parse(_workflowAssemblyCacher.InvokeMethodWithTypeConversion(methodName, parameters).ToString());
+
+                // Find the rule node and rule for the given methodName
+                var rule = GetRule(methodName);
+
                 var ruleOutput = new RuleOutput
                 {
                     RunId = runId,
                     UniqueId = 0,
-                    Result = bool.Parse(output.ToString()),
+                    Result = output,
                     RunDtTm = DateTime.Now.Date,
-                    RuleId = int.Parse(GetRuleId(methodName)), // need to find the rule id...
+                    RuleId = int.Parse(rule?.RuleId ?? "0"), // need to find the rule id...
                     RuleName = methodName,
-                    OutputMessage = ""
+                    OutputMessage = output == true ? rule?.SuccessEvent ?? "" : ""
                 };
                 return ruleOutput;
             }
@@ -68,15 +72,16 @@ namespace carenirvana.bre.workflow
 
         private void BuildOutput(object value, IWorkflowItem workItem, string methodName)
         {
+            var rule = GetRule(methodName);
             var ruleOutput = new RuleOutput
             {
                 RunId = runId,
                 UniqueId = workItem.Id,
                 Result = bool.Parse(value.ToString()),
                 RunDtTm = DateTime.Now.Date,
-                RuleId = int.Parse(GetRuleId(methodName)), // need to find the rule id...
+                RuleId = int.Parse(rule?.RuleId ?? "0"), // need to find the rule id...
                 RuleName = methodName,
-                OutputMessage = ""
+                OutputMessage = bool.Parse(value.ToString()) == true ? rule?.SuccessEvent ?? "" : ""
             };
             workItem.AddOutput(ruleOutput);
         }
@@ -98,14 +103,14 @@ namespace carenirvana.bre.workflow
             var rule = _ruleSetting.RuleNode
                 .SelectMany(node => node.Rules)
                 .FirstOrDefault(r => r.RuleName == methodName) ?? throw new InvalidOperationException($"Rule '{methodName}' not found in RuleSetting.");
-            
+
             var parameters = new List<object>();
 
             foreach (var param in rule.Parameters)
             {
                 var parameterName = param.ParameterName;
                 if (!IsParamAFunction(parameterName))
-                { 
+                {
                     var inputObject = workItem.Input.GetReflector().GetValue(parameterName);
                     parameters.Add(inputObject);
                 }
@@ -131,11 +136,12 @@ namespace carenirvana.bre.workflow
             return _ruleSetting.RuleFunction.Any(x => x.Name == fieldName);
         }
 
-        private string GetRuleId(string ruleName)
+        private Rule GetRule(string methodName)
         {
             return _ruleSetting.RuleNode
                 .SelectMany(node => node.Rules)
-                .FirstOrDefault(r => r.RuleName == ruleName).RuleId;
+                .FirstOrDefault(r => r.RuleName == methodName)
+                ?? throw new InvalidOperationException($"Rule '{methodName}' not found in RuleSetting.");
         }
     }
 }

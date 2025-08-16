@@ -21,7 +21,7 @@ namespace carenirvana.bre.codebuilder
             .Serialize();
 
             var ruleClassSerializer = new CodeModelSerializerFactory()
-                .CreateCSharpSerializer(new RuleClassBuilder(ruleSetting, "ruleset1").ToModel())
+                .CreateCSharpSerializer(new RuleClassBuilder(ruleSetting, "realtime").ToModel())
             .Serialize();
 
             var inputObjectSerializer = string.Empty;

@@ -1,7 +1,8 @@
 ﻿using carenirvana.bre.codegenerator;
 using carenirvana.bre.codegenerator.Impl;
-using carenirvana.bre.utility;
 using carenirvana.bre.model.Impl;
+using carenirvana.bre.utility;
+using System.Text.RegularExpressions;
 using static carenirvana.bre.codegenerator.EnumCollection;
 
 namespace carenirvana.bre.codebuilder
@@ -21,7 +22,8 @@ namespace carenirvana.bre.codebuilder
         {
             AddClassWithName("RuleExecutor", false)
                 .AddNamespace(ConstantsUtility.RunTimeRuleExecutorTypeName)
-                .AddNamespaceImports([ConstantsUtility.RunTimeRuleFunctionTypeName, "System"]);
+                .AddNamespaceImports([ConstantsUtility.RunTimeRuleFunctionTypeName, "System"])
+                .AddNamespaceImports([ConstantsUtility.RunTimeRuleFunctionTypeName, "System.Linq"]);
 
             AddRuleVariables();
             AddRuleMethods();
@@ -65,6 +67,7 @@ namespace carenirvana.bre.codebuilder
             {
                 var methodParams = GetMethodParameters(rule);
                 var methodBody = RuleMethodBody.BuildMethodBody(rule);
+                methodBody = ReplaceInOperator(methodBody);
                 var codeMember = new CodeMemberMethod(
                     rule.RuleName,
                     typeof(bool).ToString(),
@@ -75,6 +78,29 @@ namespace carenirvana.bre.codebuilder
 
                 AddMethod(codeMember);
             }
+        }
+
+        /// <summary>
+        /// Replaces SQL-style IN expressions with C# .Contains() expressions.
+        /// Example: x IN ("A", "B") => new[] { "A", "B" }.Contains(x)
+        /// </summary>
+        private static string ReplaceInOperator(string input)
+        {
+            // Pattern: <var> IN (<list>)
+            return Regex.Replace(
+                input,
+                @"(\w+)\s+IN\s*\(\s*([^)]+)\s*\)",
+                match =>
+                {
+                    var variable = match.Groups[1].Value;
+                    var values = match.Groups[2].Value
+                        .Split(',')
+                        .Select(v => v.Trim().Trim('"', '\''))
+                        .Select(v => $"\"{v}\"");
+                    var array = $"new[] {{ {string.Join(", ", values)} }}";
+                    return $"{array}.Contains({variable})";
+                },
+                RegexOptions.IgnoreCase);
         }
 
         private Dictionary<string, Type> GetMethodParameters(Rule rule)

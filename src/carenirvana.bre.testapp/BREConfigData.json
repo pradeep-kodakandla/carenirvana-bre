@@ -24,7 +24,7 @@
   "ruledatacategory": [
     {
       "id": "1",
-      "categoryname": "ruleinputmemberdetails",
+      "categoryname": "ruleauthdetail",
       "activeFlag": true,
       "description": "Rule Category Description 1",
       "createdBy": "system_user",
@@ -36,9 +36,9 @@
   "rulemodel": [
     {
       "id": "1",
-      "categoryname": "ruleinputmemberdetails",
-      "fieldname": "Member City",
-      "datafieldname": "city",
+      "categoryname": "ruleauthdetail",
+      "fieldname": "Authorization Type",
+      "datafieldname": "authtype",
       "datafieldtype": "string",
       "isderived": "false",
       "formula": "",
@@ -49,10 +49,10 @@
     },
     {
       "id": "2",
-      "categoryname": "ruleinputmemberdetails",
-      "fieldname": "Date Of Birth",
-      "datafieldname": "birthdate",
-      "datafieldtype": "datetime",
+      "categoryname": "ruleauthdetail",
+      "fieldname": "Authorization Status",
+      "datafieldname": "authstatus",
+      "datafieldtype": "string",
       "isderived": "false",
       "formula": "",
       "createdBy": "current_user",
@@ -62,11 +62,11 @@
     },
     {
       "id": "3",
-      "categoryname": "ruleinputmemberdetails",
-      "fieldname": "Gender",
-      "datafieldname": "gender",
+      "categoryname": "ruleauthdetail",
+      "fieldname": "LOB",
+      "datafieldname": "lob",
       "datafieldtype": "string",
-      "isderived": "true",
+      "isderived": "false",
       "formula": "",
       "createdBy": "current_user",
       "createdOn": "2025-01-07T05:37:04.483Z",
@@ -75,76 +75,11 @@
     },
     {
       "id": "4",
-      "categoryname": "ruleinputmemberdetails",
-      "fieldname": "Member Death Date",
-      "datafieldname": "deathdate",
-      "datafieldtype": "datetime",
-      "isderived": "true",
-      "formula": "",
-      "createdBy": "current_user",
-      "createdOn": "2025-01-07T05:37:04.483Z",
-      "updatedBy": "current_user",
-      "updatedOn": "2025-01-09T00:35:17.213Z"
-    },
-    {
-      "id": "5",
-      "categoryname": "ruleinputmemberdetails",
-      "fieldname": "Member Weight",
-      "datafieldname": "weight",
-      "datafieldtype": "double",
-      "isderived": "true",
-      "formula": "",
-      "createdBy": "current_user",
-      "createdOn": "2025-01-07T05:37:04.483Z",
-      "updatedBy": "current_user",
-      "updatedOn": "2025-01-09T00:35:17.213Z"
-    },
-    {
-      "id": "6",
-      "categoryname": "ruleinputmemberdetails",
-      "fieldname": "Primary Phone",
-      "datafieldname": "primaryphone",
+      "categoryname": "ruleauthdetail",
+      "fieldname": "Admission Type",
+      "datafieldname": "admissiontype",
       "datafieldtype": "string",
-      "isderived": "true",
-      "formula": "",
-      "createdBy": "current_user",
-      "createdOn": "2025-01-07T05:37:04.483Z",
-      "updatedBy": "current_user",
-      "updatedOn": "2025-01-09T00:35:17.213Z"
-    },
-    {
-      "id": "7",
-      "categoryname": "ruleinputmemberdetails",
-      "fieldname": "First Name",
-      "datafieldname": "firstname",
-      "datafieldtype": "string",
-      "isderived": "true",
-      "formula": "",
-      "createdBy": "current_user",
-      "createdOn": "2025-01-07T05:37:04.483Z",
-      "updatedBy": "current_user",
-      "updatedOn": "2025-01-09T00:35:17.213Z"
-    },
-    {
-      "id": "8",
-      "categoryname": "ruleinputmemberdetails",
-      "fieldname": "Middle Name",
-      "datafieldname": "middlename",
-      "datafieldtype": "string",
-      "isderived": "true",
-      "formula": "",
-      "createdBy": "current_user",
-      "createdOn": "2025-01-07T05:37:04.483Z",
-      "updatedBy": "current_user",
-      "updatedOn": "2025-01-09T00:35:17.213Z"
-    },
-    {
-      "id": "9",
-      "categoryname": "ruleinputmemberdetails",
-      "fieldname": "Last Name",
-      "datafieldname": "lastname",
-      "datafieldtype": "string",
-      "isderived": "true",
+      "isderived": "false",
       "formula": "",
       "createdBy": "current_user",
       "createdOn": "2025-01-07T05:37:04.483Z",
@@ -169,176 +104,48 @@
           "type": "datetime"
         }
       ]
-    },
-    {
-      "functionname": "memberfullname",
-      "functiondescription": "trim member first name",
-      "functioncode": "CONCAT(firstname, middlename, lastname)",
-      "return": "string",
-      "createdBy": "current_user",
-      "createdOn": "2025-01-07T05:37:04.483Z",
-      "updatedBy": "current_user",
-      "updatedOn": "2025-01-09T00:35:17.213Z",
-      "ruleparams": [
-        {
-          "paramname": "firstname",
-          "fieldname": "First Name",
-          "type": "string"
-        },
-        {
-          "paramname": "middlename",
-          "fieldname": "Middle Name",
-          "type": "string"
-        },
-        {
-          "paramname": "lastname",
-          "fieldname": "Last Name",
-          "type": "string"
-        }
-      ]
-    },
-    {
-      "functionname": "ismemberactive",
-      "functiondescription": "find if member is still alive or dead",
-      "functioncode": "ISNULL(deathdate)",
-      "return": "bool",
-      "createdBy": "current_user",
-      "createdOn": "2025-01-07T05:37:04.483Z",
-      "updatedBy": "current_user",
-      "updatedOn": "2025-01-09T00:35:17.213Z",
-      "ruleparams": [
-        {
-          "paramname": "deathdate",
-          "fieldname": "Death Date",
-          "type": "datetime"
-        }
-      ]
     }
   ],
   "rulenode": [
     {
-      "rulesetname": "ruleset1",
+      "rulesetname": "realtime",
       "rules": [
         {
           "ruleid": "1",
-          "rulename": "CouldBeDiabetic",
-          "batchrule": "true",
-          "errormessage": "CouldBeDiabetic rule failed.",
+          "rulename": "OutpatientTransportationAutoApprove",
+          "batchrule": "false",
+          "errormessage": "Outpatient Transportation auto-approval failed.",
           "enabled": true,
           "expressions": [
             {
-              "expression": "ismemberactive",
+              "expression": "authtype == \"Outpatient - Transportation\"",
               "logiccondition": "AND"
             },
             {
-              "expression": "age > 60",
+              "expression": "authstatus == \"Approved\"",
               "logiccondition": "AND"
             },
             {
-              "expression": "weight > 110",
+              "expression": "proccode IN (\"A0130\", \"A0100\", \"T2005\", \"A0425\", \"S0209\", \"S0215\", \"T2049\")",
               "logiccondition": ""
             }
           ],
-          "successevent": "WARN",
+          "successevent": "Generate Draft Service Authorization Letter and update Decision Status=Approved, Decision Status Code = met medical necessity, Requested units = approved units",
           "ruleparams": [
             {
-              "paramname": "ismemberactive",
-              "fieldname": "ismemberactive",
-              "type": "bool"
+              "paramname": "authtype",
+              "fieldname": "Authorization Type",
+              "type": "string"
             },
             {
-              "paramname": "age",
-              "fieldname": "age",
-              "type": "int"
+              "paramname": "authstatus",
+              "fieldname": "Auth Status",
+              "type": "string"
             },
             {
-              "paramname": "weight",
-              "fieldname": "weight",
-              "type": "double"
-            }
-          ]
-        },
-        {
-          "ruleid": "2",
-          "rulename": "IsMemberNameCareNirvana",
-          "batchrule": "true",
-          "errormessage": "IsMemberNameCareNirvana rule failed.",
-          "enabled": true,
-          "expressions": [
-            {
-              "expression": "UPPERCASE(memberfullname) == UPPERCASE(\"CareNirvana\")",
-              "logiccondition": ""
-            }
-          ],
-          "successevent": "WARN",
-          "ruleparams": [
-            {
-              "paramname": "memberfullname",
-              "fieldname": "memberfullname",
+              "paramname": "proccode",
+              "fieldname": "Procedure Code",
               "type": "string"
-            }
-          ]
-        },
-        {
-          "ruleid": "3",
-          "rulename": "IsMemberFromIndia",
-          "batchrule": "true",
-          "errormessage": "IsMemberFromIndia rule failed.",
-          "enabled": true,
-          "expressions": [
-            {
-              "expression": "city == \"india\"",
-              "logiccondition": ""
-            }
-          ],
-          "successevent": "WARN",
-          "ruleparams": [
-            {
-              "paramname": "city",
-              "fieldname": "city",
-              "type": "string"
-            }
-          ]
-        },
-        {
-          "ruleid": "4",
-          "rulename": "IsMemberAdult",
-          "batchrule": "true",
-          "errormessage": "IsMemberAdult rule failed.",
-          "enabled": true,
-          "expressions": [
-            {
-              "expression": "age >= 18",
-              "logiccondition": ""
-            }
-          ],
-          "successevent": "WARN",
-          "ruleparams": [
-            {
-              "paramname": "age",
-              "fieldname": "age",
-              "type": "int"
-            }
-          ]
-        },
-        {
-          "ruleid": "5",
-          "rulename": "IsMemberWeightValid",
-          "batchrule": "true",
-          "errormessage": "IsMemberWeightValid rule failed.",
-          "enabled": true,
-          "expressions": [
-            {
-              "expression": "weight > 0",
-              "logiccondition": ""
-            }
-          ],
-          "successevent": "WARN",
-          "ruleparams": [
-            {
-              "paramname": "weight",
-              "fieldname": "weight",
-              "type": "double"
             }
           ]
         }
